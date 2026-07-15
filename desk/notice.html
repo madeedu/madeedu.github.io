@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공지 작성/발송 · n32</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .editor{display:grid;grid-template-columns:1fr 300px;border:1px solid var(--line2);border-radius:14px;overflow:hidden;min-height:440px}
+  .presets{display:flex;align-items:center;gap:8px;padding:0 0 16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="home.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">공지 작성/발송</span><span class="nid">n32</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="desk-shell">
+    <div class="shell-topbar">
+      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="small">임시저장됨 · 14:02</span><div class="avatar">최</div></div>
+    </div>
+    <div class="shell-main">
+      <nav class="shell-side">
+        <div class="sect">데스크 · 세이노 대치</div>
+        <a href="home.html"><span class="ic">🏠</span>홈</a>
+        <a href="students.html"><span class="ic">👤</span>학생 목록</a>
+        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
+        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
+        <a href="notice.html" class="on"><span class="ic">📢</span>공지 작성</a>
+        <a href="aca-upload.html"><span class="ic">📥</span>엑셀 업로드</a>
+      </nav>
+      <div class="shell-content">
+        <div class="ct-head"><h1>새 공지</h1></div>
+
+        <div class="presets">
+          <span class="small" style="font-weight:600;margin-right:4px">프리셋</span>
+          <span class="chip on" data-group="preset">일반 공지</span>
+          <span class="chip" data-group="preset">일정 안내</span>
+          <span class="chip" data-group="preset" style="border-color:var(--red);color:var(--red)">긴급 (SMS)</span>
+          <span class="chip" data-group="preset">설명회</span>
+          <span class="chip" style="border-style:dashed">+ 프리셋 관리</span>
+        </div>
+
+        <div class="editor">
+          <div style="padding:32px 36px;display:flex;flex-direction:column;gap:16px">
+            <div style="font-size:26px;font-weight:800;color:#c9c4be;letter-spacing:-.4px">제목을 입력하세요</div>
+            <div class="hr"></div>
+            <div style="font-size:15px;color:var(--faint);line-height:1.8">본문을 입력하세요. 프리셋을 선택하면 제목 형식과 본문 틀, 기본 대상·중요도가 미리 채워집니다.</div>
+          </div>
+
+          <div id="sendPanel" style="border-left:1px solid var(--line3);background:var(--panel);padding:24px;display:flex;flex-direction:column;gap:20px">
+            <b style="font-size:14px">발송 설정</b>
+            <div>
+              <p class="label">대상 · 수신 34명</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px">
+                <span class="chip" style="padding:6px 12px;font-size:12.5px;color:var(--ink)">수학 심화반 ✕</span>
+                <span class="chip" style="padding:6px 12px;font-size:12.5px;color:var(--ink)">중2 전체 ✕</span>
+                <span class="chip" style="padding:6px 12px;font-size:12.5px;border-style:dashed">+ 추가</span>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div><div style="font-size:13.5px;font-weight:700">중요 알림</div><div class="small" style="margin-top:2px">ON 시 SMS 동시 발송</div></div>
+              <button class="toggle off" data-toggle="sendLabel" data-label-on="발송 · 푸시 30 + SMS 4" data-label-off="발송 · 푸시 34" aria-checked="false"><span class="knob"></span></button>
+            </div>
+            <div style="border-top:1px solid var(--line2);padding-top:16px;display:flex;flex-direction:column;gap:10px;margin-top:auto">
+              <button class="btn outline sm" onclick="send()"><span id="sendLabel">발송 · 푸시 34</span></button>
+              <div class="small center">발송 후 이 패널이 채널별 도달 요약으로 바뀝니다</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function send(){
+  document.getElementById('sendPanel').innerHTML =
+    '<b style="font-size:14px">발송 완료</b>'+
+    '<div class="card" style="margin-top:14px"><div style="font-size:13px;color:var(--mute)">총 도달</div><div style="font-size:26px;font-weight:800;color:var(--ok)">34 / 34</div></div>'+
+    '<div class="card">푸시 30 · SMS 4<div class="small" style="margin-top:4px">중요 알림으로 SMS 동시 발송됨</div></div>'+
+    '<a class="btn ghost sm" href="home.html" style="margin-top:8px">데스크 홈으로</a>';
+}
+</script>
+</body>
+</html>

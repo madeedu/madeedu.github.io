@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원장 대시보드 · n44</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .kpi{display:block;background:#fff;border:1px solid var(--line2);border-radius:16px;padding:20px;text-decoration:none;color:inherit;transition:border-color .15s,transform .1s}
+  .kpi:hover{border-color:var(--red);transform:translateY(-1px)}
+  .kpi .cap{font-size:13px;color:var(--mute);font-weight:600}
+  .kpi .num{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-top:8px}
+  .kpi .delta{font-size:12.5px;margin-top:6px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="../index.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">원장/지점장 대시보드</span><span class="nid">n44</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="desk-shell">
+    <div class="shell-topbar">
+      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>원장</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">원</div></div>
+    </div>
+    <div class="shell-main">
+      <nav class="shell-side">
+        <div class="sect">원장 · 세이노 대치</div>
+        <a href="dashboard.html" class="on"><span class="ic">📊</span>대시보드</a>
+        <a href="enrollment-stats.html"><span class="ic">👥</span>재원/출석률</a>
+        <a href="consult-stats.html"><span class="ic">💬</span>상담 건수</a>
+        <a href="notification-stats.html"><span class="ic">🔔</span>알림 발송</a>
+      </nav>
+      <div class="shell-content">
+        <div class="ct-head"><h1>대시보드 · 세이노 대치</h1><span class="small">오늘</span></div>
+        <div class="kpis">
+          <a class="kpi" href="enrollment-stats.html"><div class="cap">재원생</div><div class="num">128</div><div class="delta" style="color:var(--ok)">▲ 이번 달 +6</div></a>
+          <a class="kpi" href="enrollment-stats.html"><div class="cap">오늘 출석률</div><div class="num">92%</div><div class="delta muted">결석 3 · 지각 4</div></a>
+          <a class="kpi" href="consult-stats.html"><div class="cap">이번 주 상담</div><div class="num">37</div><div class="delta" style="color:var(--ok)">▲ 전주 대비 +9</div></a>
+          <a class="kpi" href="notification-stats.html"><div class="cap">오늘 알림 발송</div><div class="num">214</div><div class="delta muted">푸시 180 · SMS 34</div></a>
+        </div>
+
+        <div class="two">
+          <a class="card" href="enrollment-stats.html" style="text-decoration:none;color:inherit">
+            <div style="display:flex;justify-content:space-between;align-items:center"><b>재원 / 출석률 요약</b><span class="muted">›</span></div>
+            <div class="small" style="margin-top:8px">브랜드·과목별 재원 분포와 최근 7일 출석률 추이</div>
+          </a>
+          <a class="card" href="consult-stats.html" style="text-decoration:none;color:inherit">
+            <div style="display:flex;justify-content:space-between;align-items:center"><b>상담 건수 현황</b><span class="muted">›</span></div>
+            <div class="small" style="margin-top:8px">강사별·유형별 상담 건수, 보호자 공유 비율</div>
+          </a>
+          <a class="card" href="notification-stats.html" style="text-decoration:none;color:inherit">
+            <div style="display:flex;justify-content:space-between;align-items:center"><b>알림 발송 현황</b><span class="muted">›</span></div>
+            <div class="small" style="margin-top:8px">채널별 도달률(푸시/SMS)과 열람률</div>
+          </a>
+          <div class="card">
+            <div><b>파일럿 확장 게이트</b></div>
+            <div class="small" style="margin-top:8px">무중단 운영 3주차 · 데스크 시트 회귀 0건</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>통합 타임라인 · n19</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .tl{border-left:2px solid var(--line);margin-left:8px;display:flex;flex-direction:column}
+  .tl .item{display:flex;gap:12px;padding-bottom:14px}
+  .tl .dot{width:12px;height:12px;border-radius:50%;margin-left:-7px;flex:none;border:2.5px solid var(--card);margin-top:15px}
+  .tl .body{flex:1;background:#fff;border:1px solid var(--line2);border-radius:14px;padding:12px 14px}
+  .tl .k{font-size:11px;font-weight:700;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="student.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">통합 타임라인</span><span class="nid">n19</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="phone">
+    <div class="statusbar"><span>9:41</span><div class="sb-icons"><span class="sb-batt"></span><span class="sb-dot"></span></div></div>
+    <div class="phead"><div><h1>김서준</h1><div class="sub">출결 · 상담 · 알림 통합 이력</div></div></div>
+    <div class="pbody">
+      <div class="tl">
+        <div class="item"><div class="dot" style="background:var(--ok)"></div><div class="body"><div class="k">출결 · 7/15 16:00</div><div style="font-size:15px;font-weight:700;margin-top:2px">수학 심화반 <span class="badge ok" style="margin-left:4px">출석</span></div></div></div>
+        <div class="item"><div class="dot" style="background:var(--ink)"></div><div class="body"><div class="k">상담 · 7/12 · 박지훈</div><div style="font-size:15px;font-weight:700;margin-top:2px">학습태도 <span class="badge mute" style="margin-left:4px">보호자 공유</span></div><div class="small" style="margin-top:4px">과제 성실도가 좋아졌고 자기주도 학습 습관이 자리잡는 중.</div></div></div>
+        <div class="item"><div class="dot" style="background:var(--red)"></div><div class="body"><div class="k">출결 · 7/12 16:00</div><div style="font-size:15px;font-weight:700;margin-top:2px">수학 심화반 <span class="badge red" style="margin-left:4px">결석</span></div></div></div>
+        <div class="item"><div class="dot" style="background:var(--warn)"></div><div class="body"><div class="k">출결 · 7/8 19:00</div><div style="font-size:15px;font-weight:700;margin-top:2px">영어 독해반 <span class="badge warn" style="margin-left:4px">지각</span></div><div class="small" style="margin-top:4px">사유: 병원 진료</div></div></div>
+        <div class="item"><div class="dot" style="background:var(--ok)"></div><div class="body"><div class="k">등록 · 6/1</div><div style="font-size:15px;font-weight:700;margin-top:2px">수학 심화반 등록 시작</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

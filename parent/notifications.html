@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>알림함 · n40</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .nrow{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-bottom:1px solid var(--line3);text-decoration:none;color:inherit}
+  .nrow:last-child{border-bottom:0}
+  .unread{width:8px;height:8px;border-radius:50%;background:var(--red);margin-top:6px;flex:none}
+  .read{width:8px;height:8px;border-radius:50%;background:transparent;margin-top:6px;flex:none}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="home.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">알림함</span><span class="nid">n40</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="phone">
+    <div class="statusbar"><span>9:41</span><div class="sb-icons"><span class="sb-batt"></span><span class="sb-dot"></span></div></div>
+    <div class="phead"><h1>공지 · 알림</h1><span class="small">전체 읽음</span></div>
+    <div class="pbody" style="padding-top:12px">
+      <div class="list">
+        <a class="nrow" href="notification.html">
+          <span class="unread"></span>
+          <div style="flex:1"><div style="display:flex;justify-content:space-between"><div class="t">결석 안내 · 수학 심화반</div><span class="badge red" style="font-size:11px">출결</span></div><div class="s">오늘 수업에 오지 않았어요. 확인 부탁드립니다.</div><div class="small" style="margin-top:4px">7/12 16:20 · SMS 동시 발송</div></div>
+        </a>
+        <a class="nrow" href="notification.html">
+          <span class="unread"></span>
+          <div style="flex:1"><div style="display:flex;justify-content:space-between"><div class="t">7월 교재비 안내</div><span class="badge mute" style="font-size:11px">공지</span></div><div class="s">7월 교재비 납부 안내드립니다.</div><div class="small" style="margin-top:4px">7/10 09:00 · 푸시</div></div>
+        </a>
+        <a class="nrow" href="notification.html">
+          <span class="read"></span>
+          <div style="flex:1"><div style="display:flex;justify-content:space-between"><div class="t muted">지각 안내 · 영어 독해반</div><span class="badge warn" style="font-size:11px">출결</span></div><div class="s">오늘은 조금 늦게 도착했어요.</div><div class="small" style="margin-top:4px">7/8 19:12 · 푸시 · 읽음</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="tabbar">
+      <a class="tab" href="home.html"><div class="d"></div><div class="l">홈</div></a>
+      <a class="tab" href="attendance.html"><div class="d"></div><div class="l">출결</div></a>
+      <a class="tab on" href="notifications.html"><div class="d"></div><div class="l">공지</div></a>
+      <a class="tab" href="#"><div class="d"></div><div class="l">내정보</div></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

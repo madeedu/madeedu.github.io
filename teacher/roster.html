@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>출결 로스터 · n12</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .rrow{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line3)}
+  .rrow:last-child{border-bottom:0}
+  .schips{display:flex;gap:6px}
+  .schip{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--mute);background:#fff;cursor:pointer}
+  .schip.on{border-color:transparent}
+  .schip.on.ok{background:var(--ok-bg);color:var(--ok)}
+  .schip.on.warn{background:var(--warn-bg);color:var(--warn)}
+  .schip.on.red{background:var(--red-bg);color:var(--red)}
+  .reason{margin-top:8px;font-size:12.5px;color:var(--mute);border:1px dashed var(--line);border-radius:9px;padding:8px 10px}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="today.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">출결 로스터</span><span class="nid">n12</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="phone">
+    <div class="statusbar"><span>9:41</span><div class="sb-icons"><span class="sb-batt"></span><span class="sb-dot"></span></div></div>
+    <div class="phead">
+      <div><h1>수학 심화반</h1><div class="sub">16:00 – 18:00 · 세이노 대치 · 12명</div></div>
+      <span class="chip" onclick="this.classList.toggle('on')">전체 출석</span>
+    </div>
+
+    <div class="banner" style="margin:8px 20px 0">⚠ 동기화 충돌: 서버에 더 최신 출결이 있어요. ‘서버 값 보기’ 후 다시 저장하세요.</div>
+
+    <div class="pbody" style="padding-top:12px">
+      <div class="list">
+        <div class="rrow">
+          <div class="row-name" style="font-size:15px;font-weight:700">김서준</div>
+          <div class="schips">
+            <span class="schip on ok" data-status-group="s1" data-status-kind="ok">출석</span>
+            <span class="schip" data-status-group="s1" data-status-kind="warn">지각</span>
+            <span class="schip" data-status-group="s1" data-status-kind="red">결석</span>
+          </div>
+        </div>
+        <div class="rrow" style="flex-direction:column;align-items:stretch;gap:0">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-size:15px;font-weight:700">이서연</div>
+            <div class="schips">
+              <span class="schip" data-status-group="s2" data-status-kind="ok">출석</span>
+              <span class="schip on warn" data-status-group="s2" data-status-kind="warn">지각</span>
+              <span class="schip" data-status-group="s2" data-status-kind="red">결석</span>
+            </div>
+          </div>
+          <div class="reason">사유: 병원 진료</div>
+        </div>
+        <div class="rrow" style="flex-direction:column;align-items:stretch;gap:0">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-size:15px;font-weight:700">박지후</div>
+            <div class="schips">
+              <span class="schip" data-status-group="s3" data-status-kind="ok">출석</span>
+              <span class="schip" data-status-group="s3" data-status-kind="warn">지각</span>
+              <span class="schip on red" data-status-group="s3" data-status-kind="red">결석</span>
+            </div>
+          </div>
+          <div class="reason">사유 미입력 — 탭하여 입력</div>
+        </div>
+        <div class="rrow">
+          <div style="font-size:15px;font-weight:700">최유진</div>
+          <div class="schips">
+            <span class="schip on ok" data-status-group="s4" data-status-kind="ok">출석</span>
+            <span class="schip" data-status-group="s4" data-status-kind="warn">지각</span>
+            <span class="schip" data-status-group="s4" data-status-kind="red">결석</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn dark" style="margin-top:16px" href="today.html">저장 · 출결 반영</a>
+      <div class="small center" style="margin-top:8px">저장 시 attendance.recorded 이벤트 → 보호자 알림 발송</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

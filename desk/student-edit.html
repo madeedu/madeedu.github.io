@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학생 등록/수정 · n25</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .form{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;max-width:760px}
+  .form .full{grid-column:1 / -1}
+  .fld{display:flex;flex-direction:column;gap:6px}
+  .fld label{font-size:12.5px;font-weight:600;color:var(--mute)}
+  .sec{font-size:13px;font-weight:800;margin:6px 0 2px;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="students.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">학생 등록/수정</span><span class="nid">n25</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="desk-shell">
+    <div class="shell-topbar">
+      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">최</div></div>
+    </div>
+    <div class="shell-main">
+      <nav class="shell-side">
+        <div class="sect">데스크 · 세이노 대치</div>
+        <a href="home.html"><span class="ic">🏠</span>홈</a>
+        <a href="students.html" class="on"><span class="ic">👤</span>학생 목록</a>
+        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
+        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
+        <a href="notice.html"><span class="ic">📢</span>공지 작성</a>
+        <a href="aca-upload.html"><span class="ic">📥</span>엑셀 업로드</a>
+      </nav>
+      <div class="shell-content">
+        <div class="ct-head"><h1>학생 등록 · 보호자 함께 등록</h1></div>
+        <div class="form">
+          <div class="sec full">학생 정보</div>
+          <div class="fld"><label>이름 *</label><div class="field filled">김서준</div></div>
+          <div class="fld"><label>생년 / 학년 *</label><div class="field filled">2012 / 중2</div></div>
+          <div class="fld"><label>지점 *</label><div class="field filled">세이노 대치</div></div>
+          <div class="fld"><label>연락처(학생, 선택)</label><div class="field">010-0000-0000</div></div>
+          <div class="fld"><label>aca_ref (아카2000 ID)</label><div class="field filled">A-10231</div></div>
+          <div class="fld"><label>상태</label><div class="field filled">재원</div></div>
+
+          <div class="sec full">보호자 정보</div>
+          <div class="fld"><label>보호자 전화번호 * (로그인 식별 키)</label><div class="field filled">010-1234-5678</div></div>
+          <div class="fld"><label>보호자 이름(선택)</label><div class="field">김부모</div></div>
+          <div class="fld"><label>관계(선택)</label><div class="field filled">모</div></div>
+        </div>
+
+        <div class="banner" style="max-width:760px;margin-top:18px">ℹ 동일 전화번호 보호자가 2명 이상이면 ‘연결 보류’로 저장됩니다(오발송 방지). 보호자 번호 변경은 데스크만 가능.</div>
+
+        <div style="display:flex;gap:10px;margin-top:18px">
+          <a class="btn dark sm" style="padding:0 26px" href="students.html">저장</a>
+          <a class="btn ghost sm" style="padding:0 22px" href="students.html">취소</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

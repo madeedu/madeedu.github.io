@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>드라이런 미리보기 · n36</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .sumcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+  .sum{background:#fff;border:1px solid var(--line2);border-radius:14px;padding:16px}
+  .sum .cap{font-size:12.5px;color:var(--mute);font-weight:600}
+  .sum .num{font-size:26px;font-weight:800;margin-top:4px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line3)}
+  th{font-size:12px;color:var(--mute);font-weight:700}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="aca-upload.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">드라이런 미리보기</span><span class="nid">n36</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="desk-shell">
+    <div class="shell-topbar">
+      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">최</div></div>
+    </div>
+    <div class="shell-main">
+      <nav class="shell-side">
+        <div class="sect">데스크 · 세이노 대치</div>
+        <a href="home.html"><span class="ic">🏠</span>홈</a>
+        <a href="students.html"><span class="ic">👤</span>학생 목록</a>
+        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
+        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
+        <a href="notice.html"><span class="ic">📢</span>공지 작성</a>
+        <a href="aca-upload.html" class="on"><span class="ic">📥</span>엑셀 업로드</a>
+      </nav>
+      <div class="shell-content">
+        <div class="ct-head"><h1>드라이런 결과 · students_20260715.xlsx</h1><span class="small">승인 전에는 DB에 반영되지 않습니다</span></div>
+        <div class="sumcards">
+          <div class="sum"><div class="cap">신규</div><div class="num" style="color:var(--ok)">18</div></div>
+          <div class="sum"><div class="cap">수정</div><div class="num">106</div></div>
+          <div class="sum"><div class="cap">오류</div><div class="num" style="color:var(--red)">3</div></div>
+          <div class="sum"><div class="cap">검토 대기</div><div class="num" style="color:var(--warn)">5</div></div>
+        </div>
+
+        <div class="list" style="border-radius:12px">
+          <table>
+            <thead><tr><th>구분</th><th>aca_ref</th><th>이름</th><th>보호자</th><th>비고</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge ok">신규</span></td><td>A-10240</td><td>정민호</td><td>010-7777-8888</td><td class="muted">신규 생성</td></tr>
+              <tr><td><span class="badge mute">수정</span></td><td>A-10231</td><td>김서준</td><td>010-1234-5678</td><td class="muted">학년 변경</td></tr>
+              <tr><td><span class="badge red">오류</span></td><td>—</td><td>(공란)</td><td>010-0000</td><td style="color:var(--red)">aca_ref 누락 · 번호 형식 오류</td></tr>
+              <tr><td><span class="badge warn">검토 대기</span></td><td>A-10199</td><td>한지원</td><td>—</td><td style="color:var(--warn)">이번 스냅샷에 없음 → 자동삭제 안 함</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="banner" style="margin-top:16px">ℹ 검토 대기(스냅샷 부재) 학생은 자동 삭제하지 않습니다. aca_ref 기준 멱등 업서트 — 재업로드해도 중복 생성 없음.</div>
+
+        <div style="display:flex;gap:10px;margin-top:18px">
+          <a class="btn dark sm" style="padding:0 26px" href="students.html">반영 승인 (신규 18 · 수정 106)</a>
+          <a class="btn ghost sm" style="padding:0 22px" href="aca-upload.html">취소</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

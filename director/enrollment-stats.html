@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>재원/출석률 요약 · n45</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .bar{height:10px;border-radius:999px;background:var(--line2);overflow:hidden}
+  .bar > span{display:block;height:100%;background:var(--ink);border-radius:999px}
+  .brow{display:grid;grid-template-columns:120px 1fr 60px;gap:12px;align-items:center;padding:10px 0}
+  .brow .v{text-align:right;font-weight:700;font-size:14px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="dashboard.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">재원/출석률 요약</span><span class="nid">n45</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="desk-shell">
+    <div class="shell-topbar">
+      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>원장</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07</span><div class="avatar">원</div></div>
+    </div>
+    <div class="shell-main">
+      <nav class="shell-side">
+        <div class="sect">원장 · 세이노 대치</div>
+        <a href="dashboard.html"><span class="ic">📊</span>대시보드</a>
+        <a href="enrollment-stats.html" class="on"><span class="ic">👥</span>재원/출석률</a>
+        <a href="consult-stats.html"><span class="ic">💬</span>상담 건수</a>
+        <a href="notification-stats.html"><span class="ic">🔔</span>알림 발송</a>
+      </nav>
+      <div class="shell-content">
+        <div class="ct-head"><h1>재원 / 출석률 요약</h1><span class="small">세이노 대치 · 2026-07</span></div>
+        <div class="two">
+          <div class="card">
+            <b>과목별 재원</b>
+            <div style="margin-top:12px">
+              <div class="brow"><span>수학</span><div class="bar"><span style="width:78%"></span></div><span class="v">62</span></div>
+              <div class="brow"><span>영어</span><div class="bar"><span style="width:52%"></span></div><span class="v">41</span></div>
+              <div class="brow"><span>국어</span><div class="bar"><span style="width:30%"></span></div><span class="v">18</span></div>
+              <div class="brow"><span>논술</span><div class="bar"><span style="width:12%"></span></div><span class="v">7</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <b>최근 7일 출석률</b>
+            <div style="margin-top:12px">
+              <div class="brow"><span>7/9 (목)</span><div class="bar"><span style="width:94%"></span></div><span class="v">94%</span></div>
+              <div class="brow"><span>7/10 (금)</span><div class="bar"><span style="width:90%"></span></div><span class="v">90%</span></div>
+              <div class="brow"><span>7/12 (일)</span><div class="bar"><span style="width:88%"></span></div><span class="v">88%</span></div>
+              <div class="brow"><span>7/13 (월)</span><div class="bar"><span style="width:93%"></span></div><span class="v">93%</span></div>
+              <div class="brow"><span>7/15 (수)</span><div class="bar"><span style="width:92%;background:var(--red)"></span></div><span class="v">92%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

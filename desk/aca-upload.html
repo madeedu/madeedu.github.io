@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>아카2000 엑셀 업로드 · n35</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  .drop{border:2px dashed #d5d1cb;border-radius:16px;padding:48px 24px;text-align:center;background:var(--panel)}
+  .drop .ic{font-size:34px}
+  .steps{display:flex;gap:10px;margin-bottom:20px}
+  .step{flex:1;background:#fff;border:1px solid var(--line2);border-radius:12px;padding:12px 14px;font-size:13px}
+  .step b{display:block;font-size:14px}
+  .step.on{border-color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="home.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">아카2000 엑셀 업로드</span><span class="nid">n35</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="desk-shell">
+    <div class="shell-topbar">
+      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">최</div></div>
+    </div>
+    <div class="shell-main">
+      <nav class="shell-side">
+        <div class="sect">데스크 · 세이노 대치</div>
+        <a href="home.html"><span class="ic">🏠</span>홈</a>
+        <a href="students.html"><span class="ic">👤</span>학생 목록</a>
+        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
+        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
+        <a href="notice.html"><span class="ic">📢</span>공지 작성</a>
+        <a href="aca-upload.html" class="on"><span class="ic">📥</span>엑셀 업로드</a>
+      </nav>
+      <div class="shell-content">
+        <div class="ct-head"><h1>아카2000 엑셀 업로드 (aca-bridge)</h1><span class="small">EUC-KR → UTF-8 자동 변환</span></div>
+        <div class="steps">
+          <div class="step on"><b>1 · 업로드</b>파일 선택·파싱</div>
+          <div class="step"><b>2 · 드라이런</b>신규/수정/오류 미리보기</div>
+          <div class="step"><b>3 · 반영</b>aca_ref 업서트</div>
+        </div>
+
+        <div class="drop">
+          <div class="ic">📄</div>
+          <div style="font-size:16px;font-weight:700;margin-top:10px">학생명단 엑셀을 여기에 끌어다 놓으세요</div>
+          <div class="small" style="margin-top:6px">아카2000 › 시스템설정 › 학생자료(Excel) › 학생명단 다운받기 (C:\report)</div>
+          <div class="btn ghost sm" style="margin:16px auto 0;max-width:180px">파일 선택</div>
+        </div>
+
+        <div class="card" style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
+          <div><b>students_20260715.xlsx</b><div class="small">인코딩 감지: EUC-KR → UTF-8 변환 완료 · 132행</div></div>
+          <span class="badge ok">파싱 성공</span>
+        </div>
+
+        <div style="margin-top:18px">
+          <a class="btn dark sm" style="padding:0 26px" href="dryrun.html">다음: 드라이런 검증</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

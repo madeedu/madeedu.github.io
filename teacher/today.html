@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오늘 세션 목록 · n11</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="../index.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">오늘 세션 목록</span><span class="nid">n11</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="phone">
+    <div class="statusbar"><span>9:41</span><div class="sb-icons"><span class="sb-batt"></span><span class="sb-dot"></span></div></div>
+    <div class="phead">
+      <div><h1>수업</h1><div class="sub" id="rangeSub">7/15 (수) · 박지훈 선생님</div></div>
+      <div class="seg" style="display:grid;grid-template-columns:1fr 1fr">
+        <span class="on" id="segToday" onclick="showView('today')">오늘</span>
+        <span id="segWeek" onclick="showView('week')">주간</span>
+      </div>
+    </div>
+
+    <!-- 오늘 뷰 -->
+    <div class="pbody gap" id="view-today">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-size:16px;font-weight:700">수학 심화반</div><span class="muted" style="font-size:13px;font-weight:600">16:00 – 18:00</span>
+        </div>
+        <div class="small" style="margin-top:4px">세이노 대치 · 12명</div>
+        <a class="btn outline sm" style="margin-top:12px" href="roster.html">출결 체크</a>
+      </div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-size:16px;font-weight:700">수학 개인 · 김서준</div><span class="muted" style="font-size:13px;font-weight:600">19:00 – 20:00</span>
+        </div>
+        <div class="small" style="margin-top:4px">개인 수업 · 1명</div>
+        <a class="btn ghost sm" style="margin-top:12px" href="roster.html">출결 체크</a>
+      </div>
+      <div class="card" style="opacity:.92">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-size:16px;font-weight:700">수학 기초반</div><span class="muted" style="font-size:13px;font-weight:600">14:00 – 15:30</span>
+        </div>
+        <div class="small" style="margin-top:4px">세이노 대치 · 8명</div>
+        <div class="btn done sm" style="margin-top:12px">✓ 출결 완료 8/8</div>
+      </div>
+    </div>
+
+    <!-- 주간 뷰 -->
+    <div class="pbody" id="view-week" hidden>
+      <div class="list">
+        <a class="row" href="roster.html"><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;text-align:center"><div class="small">월</div><div style="font-size:16px;font-weight:700">14</div></div><div><div class="t" style="font-size:14px">수학 심화반 16:00</div><div style="font-size:12px;color:var(--ok);margin-top:1px">✓ 출결 완료</div></div></div></a>
+        <a class="row" href="roster.html" style="background:#fdf7f5"><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;text-align:center"><div class="small" style="color:var(--red);font-weight:700">수</div><div style="font-size:16px;font-weight:800;color:var(--red)">15</div></div><div><div class="t" style="font-size:14px">기초 14:00 · 심화 16:00 · 개인 19:00</div><div class="s">3개 세션 · 출결 1/3 완료</div></div></div><span class="muted">›</span></a>
+        <a class="row" href="roster.html"><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;text-align:center"><div class="small">금</div><div style="font-size:16px;font-weight:700">17</div></div><div><div class="t" style="font-size:14px">수학 심화반 16:00</div><div class="s">예정</div></div></div></a>
+        <a class="row" href="roster.html"><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;text-align:center"><div class="small">토</div><div style="font-size:16px;font-weight:700">18</div></div><div><div class="t" style="font-size:14px">주말 특강 10:00</div><div class="s">예정 · 20명</div></div></div></a>
+      </div>
+    </div>
+
+    <div class="tabbar">
+      <a class="tab on" href="home.html"><div class="d"></div><div class="l">수업</div></a>
+      <a class="tab" href="student.html"><div class="d"></div><div class="l">학생관리</div></a>
+      <a class="tab" href="consult.html"><div class="d"></div><div class="l">학생상담</div></a>
+      <a class="tab" href="#"><div class="d"></div><div class="l">내정보</div></a>
+    </div>
+  </div>
+</div>
+
+<script>
+function showView(v){
+  document.getElementById('view-today').hidden = (v!=='today');
+  document.getElementById('view-week').hidden  = (v!=='week');
+  document.getElementById('segToday').classList.toggle('on', v==='today');
+  document.getElementById('segWeek').classList.toggle('on', v==='week');
+  document.getElementById('rangeSub').textContent = v==='today' ? '7/15 (수) · 박지훈 선생님' : '7/14 – 7/20 · 박지훈 선생님';
+}
+</script>
+</body>
+</html>

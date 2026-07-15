@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상담일지 작성 · n20</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="student.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">상담일지 작성</span><span class="nid">n20</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="phone">
+    <div class="statusbar"><span>9:41</span><div class="sb-icons"><span class="sb-batt"></span><span class="sb-dot"></span></div></div>
+    <div class="phead"><div><h1>상담 작성</h1><div class="sub">김서준 · 중2</div></div></div>
+    <div class="pbody gap">
+      <div>
+        <p class="label">상담 유형</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="chip on" data-group="cat">학습태도</span>
+          <span class="chip" data-group="cat">성적</span>
+          <span class="chip" data-group="cat">진로</span>
+          <span class="chip" data-group="cat">생활</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="label">내용</p>
+        <div class="field" style="min-height:150px;align-items:flex-start;line-height:1.7">상담 내용을 입력하세요…</div>
+      </div>
+
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center">
+        <div><div style="font-size:14px;font-weight:700">보호자에게 공유</div><div class="small" style="margin-top:2px">ON 시 consult.shared 이벤트 → 보호자 알림</div></div>
+        <button class="toggle off" data-toggle="" aria-checked="false"><span class="knob"></span></button>
+      </div>
+
+      <a class="btn dark" href="student.html">저장</a>
+      <div class="small center">민감정보로 분류 · 열람 시 접근 로그 기록</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

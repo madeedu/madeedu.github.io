@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MADE LMS — 화면 목록 (25)</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+<style>
+  .wrap{max-width:960px;margin:0 auto;padding:40px 24px 80px}
+  .hero{margin-bottom:8px}
+  .hero .logo{font-size:26px}
+  .hero .desc{font-size:14px;color:var(--mute);margin-top:8px;line-height:1.6}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 10px;font-size:12.5px;color:var(--mute)}
+  .legend b{color:var(--ink)}
+  section.grp{margin-top:30px}
+  section.grp > h2{font-size:15px;font-weight:800;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  section.grp > h2 .dev{font-size:11px;font-weight:600;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+  a.scard{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line2);border-radius:14px;padding:15px 16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .1s}
+  a.scard:hover{border-color:var(--red);transform:translateY(-1px)}
+  a.scard .nm{font-size:15px;font-weight:700}
+  a.scard .meta{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--mute)}
+  a.scard .nid{font:600 10.5px ui-monospace,Menlo,monospace;background:rgba(0,0,0,.07);border-radius:5px;padding:2px 6px;color:var(--ink)}
+  .entry{display:inline-flex;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="logo">MADE <span class="r">LMS</span> · 화면 목록</div>
+    <div class="desc">
+      대치 파일럿 클릭 프로토타입 — <b>어떤 버튼을 누르면 어떤 화면으로 넘어가는가</b>를 확인하는 용도.<br>
+      아무 화면이나 눌러 시작하거나, 아래 <b>진입점(로그인)</b>부터 플로우대로 따라가 보세요. · OTP 단계 제외.
+    </div>
+    <a class="btn dark sm entry" style="padding:0 22px" href="auth/login.html">▶ 로그인부터 시작</a>
+  </div>
+
+  <div class="legend">
+    <span>📱 <b>모바일</b> 프레임: 강사·학부모·인증</span>
+    <span>🖥 <b>PC</b> 프레임: 데스크·원장</span>
+    <span>· 화면 우상단 <b>nXX</b> = 유저플로우 노드 id</span>
+  </div>
+
+  <section class="grp">
+    <h2>인증 / 온보딩 <span class="dev">📱 모바일</span></h2>
+    <div class="cards">
+      <a class="scard" href="auth/login.html"><span class="nm">강사/데스크 로그인</span><span class="meta"><span class="nid">n4</span>역할 진입점</span></a>
+      <a class="scard" href="auth/parent-login.html"><span class="nm">학부모 로그인</span><span class="meta"><span class="nid">1a</span>ID/PW · OTP 제외</span></a>
+      <a class="scard" href="auth/onboarding.html"><span class="nm">학부모 온보딩</span><span class="meta"><span class="nid">n6</span>설치+알림 2단계</span></a>
+    </div>
+  </section>
+
+  <section class="grp">
+    <h2>강사 · 출결/상담 <span class="dev">📱 모바일</span></h2>
+    <div class="cards">
+      <a class="scard" href="teacher/home.html"><span class="nm">강사 홈</span><span class="meta"><span class="nid">n10</span></span></a>
+      <a class="scard" href="teacher/today.html"><span class="nm">오늘 세션 목록</span><span class="meta"><span class="nid">n11</span></span></a>
+      <a class="scard" href="teacher/roster.html"><span class="nm">출결 로스터</span><span class="meta"><span class="nid">n12</span></span></a>
+      <a class="scard" href="teacher/student.html"><span class="nm">학생 상세</span><span class="meta"><span class="nid">n18</span></span></a>
+      <a class="scard" href="teacher/timeline.html"><span class="nm">통합 타임라인</span><span class="meta"><span class="nid">n19</span></span></a>
+      <a class="scard" href="teacher/consult.html"><span class="nm">상담일지 작성</span><span class="meta"><span class="nid">n20</span></span></a>
+    </div>
+  </section>
+
+  <section class="grp">
+    <h2>데스크 · 관리 <span class="dev">🖥 PC</span></h2>
+    <div class="cards">
+      <a class="scard" href="desk/home.html"><span class="nm">데스크 홈</span><span class="meta"><span class="nid">n23</span></span></a>
+      <a class="scard" href="desk/students.html"><span class="nm">학생 목록</span><span class="meta"><span class="nid">n24</span></span></a>
+      <a class="scard" href="desk/student-edit.html"><span class="nm">학생 등록/수정</span><span class="meta"><span class="nid">n25</span></span></a>
+      <a class="scard" href="desk/enrollment.html"><span class="nm">등록(과목) 관리</span><span class="meta"><span class="nid">n28</span></span></a>
+      <a class="scard" href="desk/guardian-hold.html"><span class="nm">보호자 연결 보류</span><span class="meta"><span class="nid">n29</span></span></a>
+      <a class="scard" href="desk/org.html"><span class="nm">조직/지점·과목·반</span><span class="meta"><span class="nid">n31</span></span></a>
+      <a class="scard" href="desk/notice.html"><span class="nm">공지 작성/발송</span><span class="meta"><span class="nid">n32</span></span></a>
+      <a class="scard" href="desk/aca-upload.html"><span class="nm">아카2000 엑셀 업로드</span><span class="meta"><span class="nid">n35</span></span></a>
+      <a class="scard" href="desk/dryrun.html"><span class="nm">드라이런 미리보기</span><span class="meta"><span class="nid">n36</span></span></a>
+    </div>
+  </section>
+
+  <section class="grp">
+    <h2>학부모 · 알림/조회 <span class="dev">📱 모바일</span></h2>
+    <div class="cards">
+      <a class="scard" href="parent/home.html"><span class="nm">학부모 홈</span><span class="meta"><span class="nid">n38</span></span></a>
+      <a class="scard" href="parent/notifications.html"><span class="nm">알림함</span><span class="meta"><span class="nid">n40</span></span></a>
+      <a class="scard" href="parent/notification.html"><span class="nm">알림 상세</span><span class="meta"><span class="nid">n41</span></span></a>
+      <a class="scard" href="parent/attendance.html"><span class="nm">자녀 출결 현황</span><span class="meta"><span class="nid">n43</span></span></a>
+    </div>
+  </section>
+
+  <section class="grp">
+    <h2>원장/지점장 · 대시보드 <span class="dev">🖥 PC</span></h2>
+    <div class="cards">
+      <a class="scard" href="director/dashboard.html"><span class="nm">원장 대시보드</span><span class="meta"><span class="nid">n44</span></span></a>
+      <a class="scard" href="director/enrollment-stats.html"><span class="nm">재원/출석률 요약</span><span class="meta"><span class="nid">n45</span></span></a>
+      <a class="scard" href="director/consult-stats.html"><span class="nm">상담 건수 현황</span><span class="meta"><span class="nid">n46</span></span></a>
+      <a class="scard" href="director/notification-stats.html"><span class="nm">알림 발송 현황</span><span class="meta"><span class="nid">n47</span></span></a>
+    </div>
+  </section>
+</div>
+</body>
+</html>

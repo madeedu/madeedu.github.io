@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>등록(과목) 관리 · n28</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+<style>
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line3)}
+  th{font-size:12.5px;color:var(--mute);font-weight:700}
+  .addrow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;margin-top:16px}
+  .fld{display:flex;flex-direction:column;gap:6px}
+  .fld label{font-size:12px;font-weight:600;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="students.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">등록(과목) 관리</span><span class="nid">n28</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="desk-shell">
+    <div class="shell-topbar">
+      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">최</div></div>
+    </div>
+    <div class="shell-main">
+      <nav class="shell-side">
+        <div class="sect">데스크 · 세이노 대치</div>
+        <a href="home.html"><span class="ic">🏠</span>홈</a>
+        <a href="students.html" class="on"><span class="ic">👤</span>학생 목록</a>
+        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
+        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
+        <a href="notice.html"><span class="ic">📢</span>공지 작성</a>
+        <a href="aca-upload.html"><span class="ic">📥</span>엑셀 업로드</a>
+      </nav>
+      <div class="shell-content">
+        <div class="ct-head"><h1>등록(과목) 관리 · 김서준</h1><span class="small">등록 단위 = 과목</span></div>
+        <div class="list" style="border-radius:12px">
+          <table>
+            <thead><tr><th>과목</th><th>형태(mode)</th><th>반</th><th>시작일</th><th>상태</th></tr></thead>
+            <tbody>
+              <tr><td><b>수학</b></td><td>반 수업</td><td>수학 심화반</td><td>2026-06-01</td><td><span class="badge ok">진행</span></td></tr>
+              <tr><td><b>영어</b></td><td>반 수업</td><td>영어 독해반</td><td>2026-06-01</td><td><span class="badge ok">진행</span></td></tr>
+              <tr><td><b>수학</b></td><td>개인 1:1</td><td class="muted">—</td><td>2026-07-01</td><td><span class="badge ok">진행</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="addrow">
+          <div class="fld"><label>과목</label><div class="field filled">국어</div></div>
+          <div class="fld"><label>형태(mode)</label><div class="field filled">반 수업</div></div>
+          <div class="fld"><label>반(선택)</label><div class="field">국어 기본반</div></div>
+          <div class="fld"><label>시작일</label><div class="field filled">2026-07-16</div></div>
+          <a class="btn dark sm" style="padding:0 18px">+ 등록 추가</a>
+        </div>
+
+        <div style="margin-top:20px">
+          <a class="btn dark sm" style="padding:0 26px" href="students.html">저장</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

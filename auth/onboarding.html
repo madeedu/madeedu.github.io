@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학부모 온보딩 · n6</title>
+<link rel="stylesheet" href="../styles.css">
+<script defer src="../app.js"></script>
+</head>
+<body>
+<div class="proto-bar">
+  <a class="back" href="../index.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">학부모 온보딩 (설치+알림)</span><span class="nid">n6</span>
+  <span class="spacer"></span>
+  <a class="list" href="../index.html">≡ 목록</a>
+</div>
+
+<div class="stage">
+  <div class="phone">
+    <div class="statusbar"><span>9:41</span><div class="sb-icons"><span class="sb-batt"></span><span class="sb-dot"></span></div></div>
+    <div style="padding:36px 26px 32px" class="gap">
+      <div>
+        <div style="font-size:22px;font-weight:800;letter-spacing:-.4px;line-height:1.35">알림을 받을 준비를<br>해볼게요</div>
+        <div class="small" style="margin-top:8px">2단계만 마치면 자녀 출결·공지를 바로 받아요</div>
+      </div>
+
+      <!-- STEP 1 : 홈화면 설치 -->
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:34px;height:34px;border-radius:50%;background:var(--seg);display:flex;align-items:center;justify-content:center;font-weight:800;flex:none">1</div>
+        <div style="flex:1">
+          <div style="font-size:16px;font-weight:700">홈 화면에 추가</div>
+          <div class="small" style="margin-top:3px">아이폰은 공유 버튼 → ‘홈 화면에 추가’를 눌러주세요</div>
+          <div class="btn outline sm" style="margin-top:12px" data-toggle="s1lbl" data-label-on="✓ 추가됨" data-label-off="홈 화면에 추가"><span id="s1lbl">홈 화면에 추가</span></div>
+        </div>
+      </div>
+
+      <!-- STEP 2 : 알림 허용 -->
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:34px;height:34px;border-radius:50%;background:var(--seg);display:flex;align-items:center;justify-content:center;font-weight:800;flex:none">2</div>
+        <div style="flex:1">
+          <div style="font-size:16px;font-weight:700">알림 허용</div>
+          <div class="small" style="margin-top:3px">출결·공지 알림을 푸시로 받으려면 필요해요</div>
+          <div class="btn outline sm" style="margin-top:12px" data-toggle="s2lbl" data-label-on="✓ 허용됨" data-label-off="알림 허용"><span id="s2lbl">알림 허용</span></div>
+        </div>
+      </div>
+
+      <a class="btn dark" href="../parent/home.html">시작하기</a>
+      <div class="small center">설치·알림을 못 해도 <b>중요 알림은 SMS로</b> 받을 수 있어요<br><span style="color:#c9b7b7">(SMS OTP 인증 단계는 이 파일럿에서 제외)</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
