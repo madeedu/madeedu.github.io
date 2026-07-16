@@ -135,6 +135,10 @@
     set("dbg.device", mode);
     document.documentElement.setAttribute("data-device", mode);
   }
+  function applyProtoBar(hidden){
+    set("dbg.protobar", hidden ? "off" : "on");
+    document.documentElement.classList.toggle("pb-off", hidden);
+  }
   function applyMock(off){
     set("dbg.mock", off ? "off" : "on");
     document.body.classList.toggle("mock-off", off);
@@ -158,22 +162,27 @@
   function panelHTML(child){
     var opts = "";
     for(var i=0;i<SCREENS.length;i++){ opts += '<option value="'+i+'">'+(i+1)+". "+SCREENS[i].l+" ("+SCREENS[i].n+')</option>'; }
-    var act  = child ? "" : '<button class="dbtn act">⧉ 분리</button>';
+    var ttl  = child ? "ttl" : "ttl drag-handle";
+    var hdbtns = child ? "" : '<button class="dbtn mini-min" title="접기">–</button><button class="dbtn act">⧉ 분리</button>';
     var strip= child ? "" : '<div class="redock-strip"><span>🔗 패널 분리됨</span><button class="dbtn red rd">재결합</button></div>';
     var foot = child ? '<div class="drow"><button class="dbtn red rd" style="width:100%">🔗 부모창으로 재결합</button></div>' : "";
-    return '<div class="dbg-hd"><span class="ttl">🛠 디버그 패널</span>'+act+'</div>'
+    var launcher = child ? "" : '<button class="mini-btn drag-handle" title="디버그 패널 열기">🛠</button>';
+    return '<div class="dbg-hd"><span class="'+ttl+'">🛠 디버그 패널</span><span class="hd-btns">'+hdbtns+'</span></div>'
       + '<div class="dbg-body">'
       +   '<div class="drow"><span class="dlabel">목업 데이터</span><button class="toggle2 mock"><span class="k"></span></button></div>'
+      +   '<div class="drow"><span class="dlabel">상단바</span><button class="toggle2 pbar"><span class="k"></span></button></div>'
       +   '<div class="drow"><span class="dlabel">디바이스</span><div class="dseg dev"><button data-dev="auto">자동</button><button data-dev="mobile">모바일</button><button data-dev="pc">PC</button></div></div>'
       +   '<div class="drow" style="flex-direction:column;align-items:stretch;gap:7px"><span class="dlabel cur">화면 —</span><div class="pager"><button class="nav prev">◀</button><select class="jump">'+opts+'</select><button class="nav next">▶</button></div></div>'
       +   foot
       + '</div>'
-      + strip;
+      + strip
+      + launcher;
   }
 
   function refreshUI(root, st){
     if(!root || !st) return;
     var m = root.querySelector(".mock"); if(m) m.classList.toggle("on", st.mock !== "off");
+    var pb = root.querySelector(".pbar"); if(pb) pb.classList.toggle("on", st.protobar !== "off");
     root.querySelectorAll(".dev button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-dev") === st.device); });
     var cur = root.querySelector(".cur"); if(cur) cur.textContent = st.label + (st.index >= 0 ? ("  ·  " + (st.index+1) + "/" + st.total) : "");
     var sel = root.querySelector(".jump"); if(sel && st.index >= 0) sel.value = st.index;
@@ -192,22 +201,64 @@
     try{ if(window.__dbgChild && !window.__dbgChild.closed) window.__dbgChild.close(); }catch(e){}
   }
 
+  // 패널 이동(드래그) · 축소 런처 (분리 없이 화면 내에서 이동)
+  function placeAt(el, L, T){
+    var w = el.offsetWidth, hh = el.offsetHeight;
+    L = Math.max(6, Math.min(L, window.innerWidth  - w - 6));
+    T = Math.max(6, Math.min(T, window.innerHeight - hh - 6));
+    el.style.left = L + "px"; el.style.top = T + "px"; el.style.right = "auto"; el.style.bottom = "auto";
+  }
+  function restorePos(el){
+    var pos = get("dbg.pos", ""); if(!pos) return;
+    var p = pos.split(","); if(p.length !== 2) return;
+    var f = window.requestAnimationFrame || function(fn){ setTimeout(fn, 0); };
+    f(function(){ placeAt(el, +p[0], +p[1]); });
+  }
+  function collapsePanel(el){ set("dbg.mini", "1"); el.classList.add("mini"); }
+  function expandPanel(el){ set("dbg.mini", "0"); el.classList.remove("mini"); restorePos(el); }
+  function makeDraggable(el){
+    Array.prototype.forEach.call(el.querySelectorAll(".drag-handle"), function(h){
+      h.addEventListener("pointerdown", function(e){
+        if(e.button) return;
+        var r = el.getBoundingClientRect(), offX = e.clientX - r.left, offY = e.clientY - r.top;
+        var sx = e.clientX, sy = e.clientY, moved = false;
+        try{ h.setPointerCapture(e.pointerId); }catch(_){}
+        function mv(ev){
+          if(!moved && Math.abs(ev.clientX - sx) + Math.abs(ev.clientY - sy) < 5) return;
+          moved = true; placeAt(el, ev.clientX - offX, ev.clientY - offY);
+        }
+        function up(){
+          h.removeEventListener("pointermove", mv);
+          h.removeEventListener("pointerup", up);
+          if(moved){ var rr = el.getBoundingClientRect(); set("dbg.pos", Math.round(rr.left) + "," + Math.round(rr.top)); }
+          else if(h.classList.contains("mini-btn")){ expandPanel(el); }
+        }
+        h.addEventListener("pointermove", mv);
+        h.addEventListener("pointerup", up);
+        e.preventDefault();
+      });
+    });
+  }
+
   // 부모 페이지에서 노출하는 제어 API (자식창이 window.opener.DBG 로 호출)
   window.DBG = {
     setMock:   function(off){ applyMock(off); refreshUI(hostEl(), this.current()); },
     setDevice: function(m){ applyDevice(m); refreshUI(hostEl(), this.current()); },
+    setProtoBar:function(hidden){ applyProtoBar(hidden); refreshUI(hostEl(), this.current()); },
     gotoRel:   function(d){ var i=currentIndex(); if(i<0){ i = d>0?0:SCREENS.length-1; } else { i+=d; if(i<0)i=SCREENS.length-1; if(i>=SCREENS.length)i=0; } go(SCREENS[i].p); },
     gotoIndex: function(i){ i=+i; if(SCREENS[i]) go(SCREENS[i].p); },
     detach:    doDetach,
     redock:    doRedock,
     isDetached:function(){ return get("dbg.detached","0") === "1"; },
-    current:   function(){ var i=currentIndex(); return {index:i, total:SCREENS.length, label: i>=0 ? (SCREENS[i].l+" ("+SCREENS[i].n+")") : "화면 목록", mock:get("dbg.mock","on"), device:get("dbg.device","auto"), detached:this.isDetached()}; }
+    current:   function(){ var i=currentIndex(); return {index:i, total:SCREENS.length, label: i>=0 ? (SCREENS[i].l+" ("+SCREENS[i].n+")") : "화면 목록", mock:get("dbg.mock","on"), device:get("dbg.device","auto"), protobar:get("dbg.protobar","on"), detached:this.isDetached()}; }
   };
 
   function bind(root, apiGetter, child){
     function act(fn){ var api=apiGetter(); if(!api) return; try{ fn(api); }catch(e){} try{ var a=apiGetter(); if(a) refreshUI(root, a.current()); }catch(e){} }
     var mock = root.querySelector(".mock");
     if(mock) mock.addEventListener("click", function(){ act(function(api){ api.setMock(mock.classList.contains("on")); }); });
+    var pbar = root.querySelector(".pbar");
+    if(pbar) pbar.addEventListener("click", function(){ act(function(api){ api.setProtoBar(pbar.classList.contains("on")); }); });
     root.querySelectorAll(".dev button").forEach(function(b){ b.addEventListener("click", function(){ act(function(api){ api.setDevice(b.getAttribute("data-dev")); }); }); });
     var prev=root.querySelector(".prev"), next=root.querySelector(".next"), jump=root.querySelector(".jump");
     if(prev) prev.addEventListener("click", function(){ act(function(api){ api.gotoRel(-1); }); });
@@ -219,6 +270,9 @@
       var api=apiGetter(); if(api) api.redock();
       if(child){ try{ window.close(); }catch(e){} }
     }); });
+    var minim = root.querySelector(".mini-min");
+    if(minim) minim.addEventListener("click", function(){ collapsePanel(root); });
+    makeDraggable(root);
   }
 
   if(isPanel){
@@ -244,6 +298,10 @@
   // 저장된 상태 적용
   applyDevice(get("dbg.device", "auto"));
   applyMock(get("dbg.mock", "on") === "off");
+  applyProtoBar(get("dbg.protobar", "on") === "off");
   if(get("dbg.detached", "0") === "1") host.classList.add("detached");
+  var narrow = window.matchMedia && window.matchMedia("(max-width:560px)").matches;
+  if(get("dbg.mini", narrow ? "1" : "0") === "1") host.classList.add("mini");
+  restorePos(host);
   refreshUI(host, window.DBG.current());
 })();

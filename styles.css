@@ -203,3 +203,17 @@ html[data-device="pc"] .phone{width:720px}
 body[data-dbg-panel]{margin:0;background:#1a1a1a}
 body[data-dbg-panel] #dbg{position:static;width:auto;min-height:100vh;border-radius:0;box-shadow:none}
 body[data-dbg-panel] #dbg .dbg-body{display:flex !important}
+
+/* ---------- 상단바 토글 ---------- */
+html.pb-off .proto-bar{display:none}
+
+/* ---------- 패널: 이동(드래그) · 축소 런처 ---------- */
+#dbg .dbg-hd .hd-btns{display:flex;gap:6px;align-items:center}
+#dbg .dbg-hd .ttl.drag-handle{cursor:grab;user-select:none;touch-action:none}
+#dbg .dbg-hd .ttl.drag-handle:active{cursor:grabbing}
+#dbg .dbtn.mini-min{padding:3px 10px;font-size:16px;line-height:1}
+#dbg .mini-btn{display:none}
+#dbg.mini{width:auto;background:transparent;box-shadow:none;border-radius:0;overflow:visible}
+#dbg.mini .dbg-hd,#dbg.mini .dbg-body,#dbg.mini .redock-strip{display:none}
+#dbg.mini .mini-btn{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#1a1a1a;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.34);border:0;cursor:grab;font-size:20px;touch-action:none}
+#dbg.mini .mini-btn:active{cursor:grabbing}
