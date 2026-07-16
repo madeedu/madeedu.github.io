@@ -167,6 +167,8 @@ html[data-device="pc"] .phone{width:720px}
 /* ---------- 목업 OFF 빈 상태 ---------- */
 .mock-hidden{display:none !important}
 .mock-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:60px 24px;text-align:center;color:var(--mute)}
+/* 데스크 셸(.shell-content)에서는 빈 카드가 영역을 꽉 채워 정중앙에 오도록 (가로/세로 flex·블록 부모 모두 대응) */
+.shell-content>.mock-empty{flex:1 1 100%;align-self:stretch;min-height:min(70vh,520px)}
 .mock-empty .emoji{font-size:42px}
 .mock-empty .t{font-size:15px;font-weight:700;color:var(--ink)}
 .mock-empty .s{font-size:12.5px}
