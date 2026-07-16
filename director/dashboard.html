@@ -6,68 +6,120 @@
 <title>원장 대시보드 · n44</title>
 <link rel="stylesheet" href="../styles.css">
 <script defer src="../app.js"></script>
-<style>
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .kpi{display:block;background:#fff;border:1px solid var(--line2);border-radius:16px;padding:20px;text-decoration:none;color:inherit;transition:border-color .15s,transform .1s}
-  .kpi:hover{border-color:var(--red);transform:translateY(-1px)}
-  .kpi .cap{font-size:13px;color:var(--mute);font-weight:600}
-  .kpi .num{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-top:8px}
-  .kpi .delta{font-size:12.5px;margin-top:6px}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-</style>
 </head>
 <body>
 <div class="proto-bar">
   <a class="back" href="../index.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
-  <span class="title">원장/지점장 대시보드</span><span class="nid">n44</span>
+  <span class="title">원장 대시보드</span><span class="nid">n44</span>
   <span class="spacer"></span>
   <a class="list" href="../index.html">≡ 목록</a>
 </div>
-
-<div class="stage">
-  <div class="desk-shell">
-    <div class="shell-topbar">
-      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>원장</span></div>
-      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">원</div></div>
-    </div>
-    <div class="shell-main">
-      <nav class="shell-side">
-        <div class="sect">원장 · 세이노 대치</div>
-        <a href="dashboard.html" class="on"><span class="ic">📊</span>대시보드</a>
-        <a href="enrollment-stats.html"><span class="ic">👥</span>재원/출석률</a>
-        <a href="consult-stats.html"><span class="ic">💬</span>상담 건수</a>
-        <a href="notification-stats.html"><span class="ic">🔔</span>알림 발송</a>
-      </nav>
-      <div class="shell-content">
-        <div class="ct-head"><h1>대시보드 · 세이노 대치</h1><span class="small">오늘</span></div>
-        <div class="kpis">
-          <a class="kpi" href="enrollment-stats.html"><div class="cap">재원생</div><div class="num">128</div><div class="delta" style="color:var(--ok)">▲ 이번 달 +6</div></a>
-          <a class="kpi" href="enrollment-stats.html"><div class="cap">오늘 출석률</div><div class="num">92%</div><div class="delta muted">결석 3 · 지각 4</div></a>
-          <a class="kpi" href="consult-stats.html"><div class="cap">이번 주 상담</div><div class="num">37</div><div class="delta" style="color:var(--ok)">▲ 전주 대비 +9</div></a>
-          <a class="kpi" href="notification-stats.html"><div class="cap">오늘 알림 발송</div><div class="num">214</div><div class="delta muted">푸시 180 · SMS 34</div></a>
-        </div>
-
-        <div class="two">
-          <a class="card" href="enrollment-stats.html" style="text-decoration:none;color:inherit">
-            <div style="display:flex;justify-content:space-between;align-items:center"><b>재원 / 출석률 요약</b><span class="muted">›</span></div>
-            <div class="small" style="margin-top:8px">브랜드·과목별 재원 분포와 최근 7일 출석률 추이</div>
-          </a>
-          <a class="card" href="consult-stats.html" style="text-decoration:none;color:inherit">
-            <div style="display:flex;justify-content:space-between;align-items:center"><b>상담 건수 현황</b><span class="muted">›</span></div>
-            <div class="small" style="margin-top:8px">강사별·유형별 상담 건수, 보호자 공유 비율</div>
-          </a>
-          <a class="card" href="notification-stats.html" style="text-decoration:none;color:inherit">
-            <div style="display:flex;justify-content:space-between;align-items:center"><b>알림 발송 현황</b><span class="muted">›</span></div>
-            <div class="small" style="margin-top:8px">채널별 도달률(푸시/SMS)과 열람률</div>
-          </a>
-          <div class="card">
-            <div><b>파일럿 확장 게이트</b></div>
-            <div class="small" style="margin-top:8px">무중단 운영 3주차 · 데스크 시트 회귀 0건</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div style="display:flex;min-height:100vh;background:#f7f7f7">
+<div style="width:220px;flex:none;background:#fff;border-right:1px solid #ececea;padding:22px 14px 18px;display:flex;flex-direction:column;gap:3px;box-sizing:border-box">
+<div style="font-size:19px;font-weight:800;letter-spacing:-.4px;color:#353535;padding:0 12px 18px">MADE <span style="color:#f0333e">LMS</span></div>
+<a href="dashboard.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:700;background:#353535;color:#fff">대시보드</a>
+<a href="../desk/students.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">학생 관리</a>
+<a href="../desk/notice.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">공지/알림</a>
+<a href="../desk/org.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">조직 관리</a>
+<div style="flex:1"></div>
+<a href="../desk/home.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:500;color:#8f8b86">데스크 홈 ↗</a>
+<div style="display:flex;align-items:center;gap:10px;padding:12px 12px 0;border-top:1px solid #f1efec;margin-top:8px">
+<div style="width:34px;height:34px;border-radius:50%;background:#ebe9e5;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#353535">원</div>
+<div><div style="font-size:13.5px;font-weight:700;color:#353535">강원장</div><div style="font-size:12px;color:#8f8b86">원장 · 세이노 대치</div></div>
+</div>
+</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #ececea;padding:15px 28px">
+<div style="font-size:18px;font-weight:800;color:#353535;letter-spacing:-.3px">운영 현황</div>
+<div style="display:flex;gap:8px">
+<div style="display:flex;align-items:center;gap:6px;background:#f7f7f7;border:1px solid #e2dfdb;border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:600;color:#353535">세이노 대치 <span style="font-size:10px;color:#8f8b86">▼</span></div>
+<div style="display:flex;align-items:center;gap:6px;background:#f7f7f7;border:1px solid #e2dfdb;border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:600;color:#353535">이번 달 <span style="font-size:10px;color:#8f8b86">▼</span></div>
+</div>
+</div>
+<div class="shell-content" style="padding:24px 28px;display:flex;flex-direction:column;gap:18px">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">재원생</div>
+<div style="font-size:28px;font-weight:800;color:#353535;margin-top:6px">148<span style="font-size:13px;font-weight:700;color:#1e8a53;margin-left:8px">▲ 6</span></div>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">출석률</div>
+<div style="font-size:28px;font-weight:800;color:#353535;margin-top:6px">94%<span style="font-size:13px;font-weight:700;color:#f0333e;margin-left:8px">▼ 1%p</span></div>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">상담 · 공유율</div>
+<div style="font-size:28px;font-weight:800;color:#353535;margin-top:6px">38<span style="font-size:13px;font-weight:600;color:#8f8b86;margin-left:8px">공유 55%</span></div>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">알림 도달률</div>
+<div style="font-size:28px;font-weight:800;color:#353535;margin-top:6px">98%<span style="font-size:13px;font-weight:600;color:#8f8b86;margin-left:8px">푸시+SMS</span></div>
+</div>
+</div>
+<div style="display:flex;gap:8px">
+<sc-if value="{{ tabAttend }}" hint-placeholder-val="{{ true }}"><span style="padding:8px 18px;border-radius:999px;background:#353535;color:#fff;font-size:13px;font-weight:600">재원/출석률</span></sc-if>
+<sc-if value="{{ notTabAttend }}" hint-placeholder-val="{{ false }}"><span style="padding:8px 18px;border-radius:999px;background:#fff;border:1px solid #e2dfdb;color:#65615c;font-size:13px;font-weight:500">재원/출석률</span></sc-if>
+<sc-if value="{{ tabConsult }}" hint-placeholder-val="{{ false }}"><span style="padding:8px 18px;border-radius:999px;background:#353535;color:#fff;font-size:13px;font-weight:600">상담</span></sc-if>
+<sc-if value="{{ notTabConsult }}" hint-placeholder-val="{{ true }}"><span style="padding:8px 18px;border-radius:999px;background:#fff;border:1px solid #e2dfdb;color:#65615c;font-size:13px;font-weight:500">상담</span></sc-if>
+<sc-if value="{{ tabNotif }}" hint-placeholder-val="{{ false }}"><span style="padding:8px 18px;border-radius:999px;background:#353535;color:#fff;font-size:13px;font-weight:600">알림 발송</span></sc-if>
+<sc-if value="{{ notTabNotif }}" hint-placeholder-val="{{ true }}"><span style="padding:8px 18px;border-radius:999px;background:#fff;border:1px solid #e2dfdb;color:#65615c;font-size:13px;font-weight:500">알림 발송</span></sc-if>
+<span style="align-self:center;font-size:12.5px;color:#8f8b86;margin-left:6px">탭은 Tweaks에서 전환</span>
+</div>
+<div style="display:grid;grid-template-columns:1.6fr 1fr;gap:14px;align-items:stretch">
+<sc-if value="{{ tabAttend }}" hint-placeholder-val="{{ true }}">
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:15px;font-weight:800;color:#353535">재원 · 출석률 추이</div><div style="font-size:12px;color:#8f8b86">3월 – 7월 · 전월 말일 기준 비교</div></div>
+<div style="display:flex;align-items:flex-end;gap:26px;height:180px;margin-top:22px;padding:0 8px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end"><div style="width:100%;max-width:56px;height:62%;background:#ebe9e5;border-radius:8px 8px 0 0"></div><span style="font-size:12px;color:#8f8b86">3월</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end"><div style="width:100%;max-width:56px;height:68%;background:#ebe9e5;border-radius:8px 8px 0 0"></div><span style="font-size:12px;color:#8f8b86">4월</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end"><div style="width:100%;max-width:56px;height:74%;background:#ebe9e5;border-radius:8px 8px 0 0"></div><span style="font-size:12px;color:#8f8b86">5월</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end"><div style="width:100%;max-width:56px;height:80%;background:#ebe9e5;border-radius:8px 8px 0 0"></div><span style="font-size:12px;color:#8f8b86">6월</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end"><div style="width:100%;max-width:56px;height:86%;background:#353535;border-radius:8px 8px 0 0;position:relative"><span style="position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:#353535">148</span></div><span style="font-size:12px;font-weight:700;color:#353535">7월</span></div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ tabConsult }}" hint-placeholder-val="{{ false }}">
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:15px;font-weight:800;color:#353535">상담 현황</div><div style="font-size:12px;color:#8f8b86">이번 달 38건</div></div>
+<div style="display:flex;flex-direction:column;gap:14px;margin-top:22px">
+<div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:700;color:#353535">보호자 공유됨</span><span style="color:#8f8b86">21건 · 55%</span></div><div style="height:10px;background:#f1efec;border-radius:999px;overflow:hidden"><div style="width:55%;height:100%;background:#353535;border-radius:999px"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:700;color:#353535">미공유 (내부 기록)</span><span style="color:#8f8b86">17건 · 45%</span></div><div style="height:10px;background:#f1efec;border-radius:999px;overflow:hidden"><div style="width:45%;height:100%;background:#c9c4be;border-radius:999px"></div></div></div>
+<div style="font-size:12.5px;color:#8f8b86;line-height:1.6;background:#fbfaf9;border-radius:10px;padding:12px 14px">강사별 상담 건수: 박지훈 14 · 김태우 11 · 이수민 8 · 기타 5</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ tabNotif }}" hint-placeholder-val="{{ false }}">
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:15px;font-weight:800;color:#353535">알림 발송 현황</div><div style="font-size:12px;color:#8f8b86">이번 달 1,284건</div></div>
+<div style="display:flex;flex-direction:column;gap:14px;margin-top:22px">
+<div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:700;color:#353535">푸시 도달</span><span style="color:#8f8b86">1,196건 · 98%</span></div><div style="height:10px;background:#f1efec;border-radius:999px;overflow:hidden"><div style="width:98%;height:100%;background:#353535;border-radius:999px"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:700;color:#353535">SMS 폴백</span><span style="color:#8f8b86">64건 · 5%</span></div><div style="height:10px;background:#f1efec;border-radius:999px;overflow:hidden"><div style="width:5%;height:100%;background:#c9871d;border-radius:999px"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:700;color:#f0333e">미도달 (보류 포함)</span><span style="color:#f0333e">24건 · 2%</span></div><div style="height:10px;background:#f1efec;border-radius:999px;overflow:hidden"><div style="width:2%;height:100%;background:#f0333e;border-radius:999px"></div></div></div>
+<div style="font-size:12.5px;color:#8f8b86;line-height:1.6;background:#fbfaf9;border-radius:10px;padding:12px 14px">유형별: 출결 812 · 공지 391 · 상담 공유 81</div>
+</div>
+</div>
+</sc-if>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;overflow:hidden;display:flex;flex-direction:column">
+<div style="padding:16px 20px;border-bottom:1px solid #f1efec;font-size:15px;font-weight:800;color:#353535">주의 필요</div>
+<div style="display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #f1efec">
+<span style="width:7px;height:7px;background:#f0333e;border-radius:50%;flex:none"></span>
+<div style="flex:1"><div style="font-size:14px;font-weight:700;color:#353535">결석 3회 연속 — 박지호</div><div style="font-size:12.5px;color:#8f8b86;margin-top:2px">재수 · 최근 상담 6/28</div></div>
+<span style="font-size:13px;color:#8f8b86">›</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #f1efec">
+<span style="width:7px;height:7px;background:#f0333e;border-radius:50%;flex:none"></span>
+<div style="flex:1"><div style="font-size:14px;font-weight:700;color:#353535">출결 미저장 2건 — 수학</div><div style="font-size:12.5px;color:#8f8b86;margin-top:2px">어제 심화반 · 오늘 기초반</div></div>
+<span style="font-size:13px;color:#8f8b86">›</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;padding:14px 20px">
+<span style="width:7px;height:7px;background:#c9871d;border-radius:50%;flex:none"></span>
+<div style="flex:1"><div style="font-size:14px;font-weight:700;color:#353535">보호자 연결 보류 3건</div><div style="font-size:12.5px;color:#8f8b86;margin-top:2px">알림 미도달 상태 — 데스크 처리 대기</div></div>
+<span style="font-size:13px;color:#8f8b86">›</span>
+</div>
+<div style="padding:13px 20px;background:#fbfaf9;font-size:12.5px;color:#8f8b86;margin-top:auto">항목 클릭 시 해당 화면으로 딥링크</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

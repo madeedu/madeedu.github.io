@@ -6,15 +6,6 @@
 <title>학생 목록 · n24</title>
 <link rel="stylesheet" href="../styles.css">
 <script defer src="../app.js"></script>
-<style>
-  table{width:100%;border-collapse:collapse;font-size:14px}
-  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line3)}
-  th{font-size:12.5px;color:var(--mute);font-weight:700}
-  tbody tr{cursor:pointer}
-  tbody tr:hover{background:var(--panel)}
-  .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px}
-  .search{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--faint)}
-</style>
 </head>
 <body>
 <div class="proto-bar">
@@ -23,44 +14,92 @@
   <span class="spacer"></span>
   <a class="list" href="../index.html">≡ 목록</a>
 </div>
-
-<div class="stage">
-  <div class="desk-shell">
-    <div class="shell-topbar">
-      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
-      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">최</div></div>
-    </div>
-    <div class="shell-main">
-      <nav class="shell-side">
-        <div class="sect">데스크 · 세이노 대치</div>
-        <a href="home.html"><span class="ic">🏠</span>홈</a>
-        <a href="students.html" class="on"><span class="ic">👤</span>학생 목록</a>
-        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
-        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
-        <a href="notice.html"><span class="ic">📢</span>공지 작성</a>
-        <a href="aca-upload.html"><span class="ic">📥</span>엑셀 업로드</a>
-      </nav>
-      <div class="shell-content">
-        <div class="ct-head"><h1>학생 목록 · 128명</h1></div>
-        <div class="toolbar">
-          <div class="search">이름 / 전화번호 검색</div>
-          <a class="btn dark sm" style="padding:0 18px" href="student-edit.html">+ 학생 등록</a>
-          <a class="btn ghost sm" style="padding:0 18px" href="enrollment.html">등록(과목) 관리</a>
-        </div>
-        <div class="list" style="border-radius:12px">
-          <table>
-            <thead><tr><th>이름</th><th>학년/학교</th><th>과목</th><th>보호자</th><th>aca_ref</th><th>상태</th></tr></thead>
-            <tbody>
-              <tr onclick="location.href='student-edit.html'"><td><b>김서준</b></td><td>중2 · 대치중</td><td>수학·영어</td><td>010-1234-5678</td><td>A-10231</td><td><span class="badge ok">재원</span></td></tr>
-              <tr onclick="location.href='student-edit.html'"><td><b>이서연</b></td><td>중3 · 대곡중</td><td>수학</td><td>010-2222-3333</td><td>A-10232</td><td><span class="badge ok">재원</span></td></tr>
-              <tr onclick="location.href='student-edit.html'"><td><b>박지후</b></td><td>고1 · 단대부고</td><td>영어·국어</td><td>010-4444-5555</td><td>A-10233</td><td><span class="badge warn">휴원</span></td></tr>
-              <tr onclick="location.href='student-edit.html'"><td><b>최유진</b></td><td>중2 · 대치중</td><td>수학</td><td class="muted">연결 보류 ⚠</td><td>A-10234</td><td><span class="badge ok">재원</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+<div style="display:flex;min-height:100vh;background:#f7f7f7">
+<div style="width:220px;flex:none;background:#fff;border-right:1px solid #ececea;padding:22px 14px 18px;display:flex;flex-direction:column;gap:3px;box-sizing:border-box">
+<div style="font-size:19px;font-weight:800;letter-spacing:-.4px;color:#353535;padding:0 12px 18px">MADE <span style="color:#f0333e">LMS</span></div>
+<a href="home.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">홈</a>
+<a href="students.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:700;background:#353535;color:#fff">학생 관리</a>
+<a href="notice.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">공지/알림</a>
+<a href="aca-upload.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">데이터 연동</a>
+<a href="org.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">조직 관리</a>
+<div style="flex:1"></div>
+<a href="../director/dashboard.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:500;color:#8f8b86">원장 대시보드 ↗</a>
+<div style="display:flex;align-items:center;gap:10px;padding:12px 12px 0;border-top:1px solid #f1efec;margin-top:8px">
+<div style="width:34px;height:34px;border-radius:50%;background:#ebe9e5;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#353535">최</div>
+<div><div style="font-size:13.5px;font-weight:700;color:#353535">최수진</div><div style="font-size:12px;color:#8f8b86">데스크 · 세이노 대치</div></div>
+</div>
+</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #ececea;padding:15px 28px">
+<div style="font-size:18px;font-weight:800;color:#353535;letter-spacing:-.3px">학생 관리 <span style="font-size:13.5px;font-weight:500;color:#8f8b86;margin-left:8px">재원 46 · 휴원 2</span></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#353535;color:#fff;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:700">+ 학생 등록</div>
+</div>
+<div class="shell-content" style="flex:1;display:flex;min-height:0">
+<div style="flex:1;min-width:0;padding:20px 24px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;gap:10px;align-items:center">
+<div style="flex:1;background:#fff;border:1px solid #e2dfdb;border-radius:11px;padding:11px 16px;font-size:14px;color:#b5b0aa">이름·연락처·학교 검색</div>
+<span style="padding:9px 16px;border-radius:999px;background:#353535;color:#fff;font-size:13px;font-weight:600">재원</span>
+<span style="padding:9px 16px;border-radius:999px;background:#fff;border:1px solid #e2dfdb;color:#8f8b86;font-size:13px;font-weight:500">휴원</span>
+<span style="padding:9px 16px;border-radius:999px;background:#fff;border:1px solid #e2dfdb;color:#8f8b86;font-size:13px;font-weight:500">전체</span>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;overflow:hidden">
+<div style="display:flex;align-items:center;gap:12px;padding:11px 20px;background:#fbfaf9;border-bottom:1px solid #f1efec;font-size:12.5px;font-weight:600;color:#8f8b86">
+<div style="width:96px">이름</div><div style="width:130px">학년 · 학교</div><div style="flex:1">등록 과목</div><div style="width:150px">보호자</div><div style="width:64px">상태</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid #f1efec;background:#fdf5f3;border-left:3px solid #f0333e">
+<div style="width:93px;font-size:14.5px;font-weight:700;color:#353535">김민준</div><div style="width:130px;font-size:13px;color:#8f8b86">중2 · 대치중</div><div style="flex:1;font-size:13.5px;color:#65615c">수학 심화반 · 영어 독해반</div><div style="width:150px;font-size:13px;color:#8f8b86">모 010-5321-**34</div><div style="width:64px"><span style="font-size:12px;font-weight:700;color:#1e8a53;background:#e9f6ef;padding:4px 10px;border-radius:999px">재원</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid #f1efec">
+<div style="width:96px;font-size:14.5px;font-weight:700;color:#353535">이서아</div><div style="width:130px;font-size:13px;color:#8f8b86">고1 · 단대부고</div><div style="flex:1;font-size:13.5px;color:#65615c">수학 정규반</div><div style="width:150px;font-size:13px;color:#8f8b86">부 010-8845-**12</div><div style="width:64px"><span style="font-size:12px;font-weight:700;color:#1e8a53;background:#e9f6ef;padding:4px 10px;border-radius:999px">재원</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid #f1efec">
+<div style="width:96px;font-size:14.5px;font-weight:700;color:#353535">박지호</div><div style="width:130px;font-size:13px;color:#8f8b86">재수 · 메이드존</div><div style="flex:1;font-size:13.5px;color:#65615c">국어 · 수학 · 영어</div><div style="width:150px;font-size:13px;color:#8f8b86">모 010-2210-**87</div><div style="width:64px"><span style="font-size:12px;font-weight:700;color:#1e8a53;background:#e9f6ef;padding:4px 10px;border-radius:999px">재원</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid #f1efec">
+<div style="width:96px;font-size:14.5px;font-weight:700;color:#353535">정하윤</div><div style="width:130px;font-size:13px;color:#8f8b86">중1 · 대청중</div><div style="flex:1;font-size:13.5px;color:#65615c">영어 기초반</div><div style="width:150px;font-size:13px;color:#8f8b86">모 010-9182-**45</div><div style="width:64px"><span style="font-size:12px;font-weight:700;color:#1e8a53;background:#e9f6ef;padding:4px 10px;border-radius:999px">재원</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid #f1efec">
+<div style="width:96px;font-size:14.5px;font-weight:700;color:#353535">한도윤</div><div style="width:130px;font-size:13px;color:#8f8b86">고2 · 휘문고</div><div style="flex:1;font-size:13.5px;color:#65615c">수학 심화반</div><div style="width:150px;font-size:13px;color:#8f8b86">부 010-3356-**09</div><div style="width:64px"><span style="font-size:12px;font-weight:700;color:#8f8b86;background:#f1efec;padding:4px 10px;border-radius:999px">휴원</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px">
+<div style="width:96px;font-size:14.5px;font-weight:700;color:#353535">송지우</div><div style="width:130px;font-size:13px;color:#8f8b86">중3 · 대명중</div><div style="flex:1;font-size:13.5px;color:#65615c">수학 정규반 · 과학</div><div style="width:150px;font-size:13px;color:#8f8b86">모 010-7743-**21</div><div style="width:64px"><span style="font-size:12px;font-weight:700;color:#1e8a53;background:#e9f6ef;padding:4px 10px;border-radius:999px">재원</span></div>
+</div>
+</div>
+<div style="font-size:12.5px;color:#8f8b86">행 클릭 → 우측 상세 드로어 · 등록/수정·과목 관리 모두 드로어에서 (Tweaks로 드로어 열기/닫기)</div>
+</div>
+<sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ true }}">
+<div style="width:320px;flex:none;background:#fff;border-left:1px solid #ececea;padding:22px;display:flex;flex-direction:column;gap:16px;box-sizing:border-box">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:10px">
+<div style="width:40px;height:40px;border-radius:50%;background:#ebe9e5;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#353535">민</div>
+<div><div style="font-size:16px;font-weight:800;color:#353535">김민준</div><div style="font-size:12.5px;color:#8f8b86">중2 · 대치중</div></div>
+</div>
+<span style="font-size:15px;color:#8f8b86">✕</span>
+</div>
+<div style="display:flex;background:#ebe9e5;border-radius:10px;padding:3px;gap:3px">
+<div style="flex:1;padding:7px 0;text-align:center;background:#fff;border-radius:7px;font-size:13px;font-weight:700;color:#353535;box-shadow:0 1px 2px rgba(0,0,0,.07)">기본정보</div>
+<div style="flex:1;padding:7px 0;text-align:center;font-size:13px;font-weight:500;color:#8f8b86">등록 과목</div>
+<div style="flex:1;padding:7px 0;text-align:center;font-size:13px;font-weight:500;color:#8f8b86">타임라인</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div><div style="font-size:12px;font-weight:600;color:#8f8b86;margin-bottom:5px">이름</div><div style="border:1px solid #e2dfdb;border-radius:10px;padding:11px 14px;font-size:14px;color:#353535">김민준</div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div><div style="font-size:12px;font-weight:600;color:#8f8b86;margin-bottom:5px">학년</div><div style="border:1px solid #e2dfdb;border-radius:10px;padding:11px 14px;font-size:14px;color:#353535">중2</div></div>
+<div><div style="font-size:12px;font-weight:600;color:#8f8b86;margin-bottom:5px">학교</div><div style="border:1px solid #e2dfdb;border-radius:10px;padding:11px 14px;font-size:14px;color:#353535">대치중</div></div>
+</div>
+<div><div style="font-size:12px;font-weight:600;color:#8f8b86;margin-bottom:5px">학생 연락처</div><div style="border:1px solid #e2dfdb;border-radius:10px;padding:11px 14px;font-size:14px;color:#353535">010-4432-1187</div></div>
+<div><div style="font-size:12px;font-weight:600;color:#8f8b86;margin-bottom:5px">보호자 (모)</div><div style="border:1px solid #f0333e;border-radius:10px;padding:11px 14px;font-size:14px;color:#353535;display:flex;justify-content:space-between;align-items:center">010-5321-**34 <span style="font-size:11.5px;font-weight:700;color:#f0333e">번호 불일치</span></div></div>
+<div style="font-size:12px;color:#8f8b86;line-height:1.5">보호자 계정 아이디는 이 번호로 발급됩니다 · 초기 비밀번호 자동 생성</div>
+</div>
+<div style="flex:1"></div>
+<div style="display:flex;gap:8px">
+<div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #e2dfdb;color:#65615c;border-radius:10px;font-size:14px;font-weight:600">초기화</div>
+<div style="flex:1.5;display:flex;align-items:center;justify-content:center;min-height:44px;background:#353535;color:#fff;border-radius:10px;font-size:14px;font-weight:700">저장</div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
 </div>
 </body>
 </html>

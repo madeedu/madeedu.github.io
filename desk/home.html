@@ -6,14 +6,6 @@
 <title>데스크 홈 · n23</title>
 <link rel="stylesheet" href="../styles.css">
 <script defer src="../app.js"></script>
-<style>
-  .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .act{display:block;background:#fff;border:1px solid var(--line2);border-radius:16px;padding:20px;text-decoration:none;color:inherit;transition:border-color .15s,transform .1s}
-  .act:hover{border-color:var(--red);transform:translateY(-1px)}
-  .act .ic{font-size:22px}
-  .act .nm{font-size:16px;font-weight:700;margin-top:10px}
-  .act .ds{font-size:12.5px;color:var(--mute);margin-top:4px}
-</style>
 </head>
 <body>
 <div class="proto-bar">
@@ -22,36 +14,76 @@
   <span class="spacer"></span>
   <a class="list" href="../index.html">≡ 목록</a>
 </div>
-
-<div class="stage">
-  <div class="desk-shell">
-    <div class="shell-topbar">
-      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
-      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">최</div></div>
-    </div>
-    <div class="shell-main">
-      <nav class="shell-side">
-        <div class="sect">데스크 · 세이노 대치</div>
-        <a href="home.html" class="on"><span class="ic">🏠</span>홈</a>
-        <a href="students.html"><span class="ic">👤</span>학생 목록</a>
-        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
-        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
-        <a href="notice.html"><span class="ic">📢</span>공지 작성</a>
-        <a href="aca-upload.html"><span class="ic">📥</span>엑셀 업로드</a>
-      </nav>
-      <div class="shell-content">
-        <div class="ct-head"><h1>안녕하세요, 데스크 님</h1><span class="small">세이노 대치 · 재원 128명</span></div>
-        <div class="acts">
-          <a class="act" href="students.html"><div class="ic">👤</div><div class="nm">학생 목록</div><div class="ds">학생·보호자 조회, 등록/수정, 과목 등록</div></a>
-          <a class="act" href="guardian-hold.html"><div class="ic">⚠️</div><div class="nm">보호자 연결 보류</div><div class="ds">중복 번호 보호자 병합·정리 · 2건</div></a>
-          <a class="act" href="org.html"><div class="ic">🏫</div><div class="nm">조직 관리</div><div class="ds">지점·과목·반·강사</div></a>
-          <a class="act" href="notice.html"><div class="ic">📢</div><div class="nm">공지 작성/발송</div><div class="ds">대상 선택·중요도·푸시/SMS</div></a>
-          <a class="act" href="aca-upload.html"><div class="ic">📥</div><div class="nm">아카2000 엑셀 업로드</div><div class="ds">인코딩 변환·드라이런·aca_ref 업서트</div></a>
-          <a class="act" href="student-edit.html"><div class="ic">📝</div><div class="nm">신규 학생 등록</div><div class="ds">학생+보호자 함께 등록</div></a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div style="display:flex;min-height:100vh;background:#f7f7f7">
+<div style="width:220px;flex:none;background:#fff;border-right:1px solid #ececea;padding:22px 14px 18px;display:flex;flex-direction:column;gap:3px;box-sizing:border-box">
+<div style="font-size:19px;font-weight:800;letter-spacing:-.4px;color:#353535;padding:0 12px 18px">MADE <span style="color:#f0333e">LMS</span></div>
+<a href="home.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:700;background:#353535;color:#fff">홈</a>
+<a href="students.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">학생 관리</a>
+<a href="notice.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">공지/알림</a>
+<a href="aca-upload.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">데이터 연동</a>
+<a href="org.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">조직 관리</a>
+<div style="flex:1"></div>
+<a href="../director/dashboard.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:500;color:#8f8b86">원장 대시보드 ↗</a>
+<div style="display:flex;align-items:center;gap:10px;padding:12px 12px 0;border-top:1px solid #f1efec;margin-top:8px">
+<div style="width:34px;height:34px;border-radius:50%;background:#ebe9e5;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#353535">최</div>
+<div><div style="font-size:13.5px;font-weight:700;color:#353535">최수진</div><div style="font-size:12px;color:#8f8b86">데스크 · 세이노 대치</div></div>
+</div>
+</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #ececea;padding:15px 28px">
+<div style="font-size:18px;font-weight:800;color:#353535;letter-spacing:-.3px">데스크 홈</div>
+<div style="display:flex;align-items:center;gap:10px">
+<div style="display:flex;align-items:center;gap:6px;background:#f7f7f7;border:1px solid #e2dfdb;border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:600;color:#353535">세이노 대치 <span style="font-size:10px;color:#8f8b86">▼</span></div>
+<span style="font-size:13px;color:#8f8b86">2026. 7. 15 (수)</span>
+</div>
+</div>
+<div class="shell-content" style="padding:24px 28px;display:flex;flex-direction:column;gap:18px">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">오늘 등원</div>
+<div style="font-size:28px;font-weight:800;color:#353535;margin-top:6px">42<span style="font-size:15px;font-weight:600;color:#b5b0aa"> / 48</span></div>
+</div>
+<div style="background:#fff;border:1px solid #f5c9cc;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">출결 미저장 세션</div>
+<div style="font-size:28px;font-weight:800;color:#f0333e;margin-top:6px">2<span style="font-size:13px;font-weight:600;color:#f0333e;margin-left:8px">확인 필요</span></div>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">오늘 발송 알림</div>
+<div style="font-size:28px;font-weight:800;color:#353535;margin-top:6px">57<span style="font-size:13px;font-weight:500;color:#8f8b86;margin-left:8px">푸시 51 · SMS 6</span></div>
+</div>
+<div style="background:#fff;border:1px solid #f5c9cc;border-radius:16px;padding:18px 20px">
+<div style="font-size:13px;color:#8f8b86;font-weight:500">보호자 연결 보류</div>
+<div style="font-size:28px;font-weight:800;color:#f0333e;margin-top:6px">3<span style="font-size:13px;font-weight:600;color:#f0333e;margin-left:8px">건</span></div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1.5fr 1fr;gap:14px;align-items:start">
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;overflow:hidden">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #f1efec">
+<div style="font-size:15px;font-weight:800;color:#353535">보호자 연결 보류 큐</div>
+<span style="font-size:12.5px;color:#8f8b86">알림 미도달 상태 — 처리 시 발송 재개</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-bottom:1px solid #f1efec">
+<div><div style="font-size:14.5px;font-weight:700;color:#353535">김민준 <span style="font-weight:500;color:#8f8b86">중2 · 대치중</span></div><div style="font-size:12.5px;color:#f0333e;margin-top:2px">보호자 번호 불일치 — 아카2000 vs 등록 정보</div></div>
+<span style="padding:8px 16px;border:1px solid #353535;border-radius:9px;font-size:13px;font-weight:600;color:#353535">처리</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-bottom:1px solid #f1efec">
+<div><div style="font-size:14.5px;font-weight:700;color:#353535">이서아 <span style="font-weight:500;color:#8f8b86">고1 · 단대부고</span></div><div style="font-size:12.5px;color:#f0333e;margin-top:2px">보호자 번호 미입력</div></div>
+<span style="padding:8px 16px;border:1px solid #353535;border-radius:9px;font-size:13px;font-weight:600;color:#353535">처리</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px">
+<div><div style="font-size:14.5px;font-weight:700;color:#353535">박지호 <span style="font-weight:500;color:#8f8b86">재수 · 메이드존</span></div><div style="font-size:12.5px;color:#f0333e;margin-top:2px">중복 번호 — 형제 계정과 충돌</div></div>
+<span style="padding:8px 16px;border:1px solid #353535;border-radius:9px;font-size:13px;font-weight:600;color:#353535">처리</span>
+</div>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+<div style="font-size:15px;font-weight:800;color:#353535;margin-bottom:2px">빠른 작업</div>
+<a href="students.html" style="display:flex;align-items:center;justify-content:center;min-height:46px;background:#353535;color:#fff;border-radius:11px;font-size:14.5px;font-weight:700">+ 학생 등록</a>
+<a href="notice.html" style="display:flex;align-items:center;justify-content:center;min-height:46px;border:1.5px solid #f0333e;color:#f0333e;border-radius:11px;font-size:14.5px;font-weight:700">공지 발송</a>
+<a href="aca-upload.html" style="display:flex;align-items:center;justify-content:center;min-height:46px;border:1px solid #e2dfdb;color:#65615c;border-radius:11px;font-size:14.5px;font-weight:600">아카2000 엑셀 업로드</a>
+</div>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

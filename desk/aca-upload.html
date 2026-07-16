@@ -3,68 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>아카2000 엑셀 업로드 · n35</title>
+<title>데이터 연동 · n35</title>
 <link rel="stylesheet" href="../styles.css">
 <script defer src="../app.js"></script>
-<style>
-  .drop{border:2px dashed #d5d1cb;border-radius:16px;padding:48px 24px;text-align:center;background:var(--panel)}
-  .drop .ic{font-size:34px}
-  .steps{display:flex;gap:10px;margin-bottom:20px}
-  .step{flex:1;background:#fff;border:1px solid var(--line2);border-radius:12px;padding:12px 14px;font-size:13px}
-  .step b{display:block;font-size:14px}
-  .step.on{border-color:var(--ink)}
-</style>
 </head>
 <body>
 <div class="proto-bar">
-  <a class="back" href="home.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
-  <span class="title">아카2000 엑셀 업로드</span><span class="nid">n35</span>
+  <a class="back" href="../index.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">데이터 연동</span><span class="nid">n35</span>
   <span class="spacer"></span>
   <a class="list" href="../index.html">≡ 목록</a>
 </div>
-
-<div class="stage">
-  <div class="desk-shell">
-    <div class="shell-topbar">
-      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
-      <div style="display:flex;align-items:center;gap:12px"><span class="small">2026-07-15 (수)</span><div class="avatar">최</div></div>
-    </div>
-    <div class="shell-main">
-      <nav class="shell-side">
-        <div class="sect">데스크 · 세이노 대치</div>
-        <a href="home.html"><span class="ic">🏠</span>홈</a>
-        <a href="students.html"><span class="ic">👤</span>학생 목록</a>
-        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
-        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
-        <a href="notice.html"><span class="ic">📢</span>공지 작성</a>
-        <a href="aca-upload.html" class="on"><span class="ic">📥</span>엑셀 업로드</a>
-      </nav>
-      <div class="shell-content">
-        <div class="ct-head"><h1>아카2000 엑셀 업로드 (aca-bridge)</h1><span class="small">EUC-KR → UTF-8 자동 변환</span></div>
-        <div class="steps">
-          <div class="step on"><b>1 · 업로드</b>파일 선택·파싱</div>
-          <div class="step"><b>2 · 드라이런</b>신규/수정/오류 미리보기</div>
-          <div class="step"><b>3 · 반영</b>aca_ref 업서트</div>
-        </div>
-
-        <div class="drop">
-          <div class="ic">📄</div>
-          <div style="font-size:16px;font-weight:700;margin-top:10px">학생명단 엑셀을 여기에 끌어다 놓으세요</div>
-          <div class="small" style="margin-top:6px">아카2000 › 시스템설정 › 학생자료(Excel) › 학생명단 다운받기 (C:\report)</div>
-          <div class="btn ghost sm" style="margin:16px auto 0;max-width:180px">파일 선택</div>
-        </div>
-
-        <div class="card" style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
-          <div><b>students_20260715.xlsx</b><div class="small">인코딩 감지: EUC-KR → UTF-8 변환 완료 · 132행</div></div>
-          <span class="badge ok">파싱 성공</span>
-        </div>
-
-        <div style="margin-top:18px">
-          <a class="btn dark sm" style="padding:0 26px" href="dryrun.html">다음: 드라이런 검증</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div style="display:flex;min-height:100vh;background:#f7f7f7">
+<div style="width:220px;flex:none;background:#fff;border-right:1px solid #ececea;padding:22px 14px 18px;display:flex;flex-direction:column;gap:3px;box-sizing:border-box">
+<div style="font-size:19px;font-weight:800;letter-spacing:-.4px;color:#353535;padding:0 12px 18px">MADE <span style="color:#f0333e">LMS</span></div>
+<a href="home.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">홈</a>
+<a href="students.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">학생 관리</a>
+<a href="notice.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">공지/알림</a>
+<a href="aca-upload.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:700;background:#353535;color:#fff">데이터 연동</a>
+<a href="org.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">조직 관리</a>
+<div style="flex:1"></div>
+<a href="../director/dashboard.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:500;color:#8f8b86">원장 대시보드 ↗</a>
+<div style="display:flex;align-items:center;gap:10px;padding:12px 12px 0;border-top:1px solid #f1efec;margin-top:8px">
+<div style="width:34px;height:34px;border-radius:50%;background:#ebe9e5;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#353535">최</div>
+<div><div style="font-size:13.5px;font-weight:700;color:#353535">최수진</div><div style="font-size:12px;color:#8f8b86">데스크 · 세이노 대치</div></div>
+</div>
+</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #ececea;padding:15px 28px">
+<div style="font-size:18px;font-weight:800;color:#353535;letter-spacing:-.3px">아카2000 엑셀 연동</div>
+<div style="display:flex;align-items:center;gap:8px">
+<span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#353535"><span style="width:22px;height:22px;border-radius:50%;background:#353535;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px">1</span>업로드</span>
+<span style="width:24px;height:1px;background:#d5d1cb"></span>
+<span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#353535"><span style="width:22px;height:22px;border-radius:50%;background:#353535;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px">2</span>드라이런</span>
+<span style="width:24px;height:1px;background:#d5d1cb"></span>
+<span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:#8f8b86"><span style="width:22px;height:22px;border-radius:50%;background:#ebe9e5;color:#8f8b86;display:inline-flex;align-items:center;justify-content:center;font-size:12px">3</span>승인</span>
+</div>
+</div>
+<div class="shell-content" style="flex:1;display:grid;grid-template-columns:320px 1fr;gap:18px;padding:24px 28px;box-sizing:border-box;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="flex:1;border:1.5px dashed #c9c4be;border-radius:16px;background:#fbfaf9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center">
+<div style="width:52px;height:52px;border-radius:14px;background:#ebe9e5;display:flex;align-items:center;justify-content:center;font-size:22px;color:#8f8b86">↑</div>
+<div style="font-size:15px;font-weight:700;color:#353535">엑셀 파일을 끌어다 놓거나<br>클릭해서 선택</div>
+<div style="font-size:12.5px;color:#8f8b86">.xlsx · 아카2000 내보내기 양식</div>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:14px;padding:14px 16px">
+<div style="font-size:12.5px;font-weight:600;color:#8f8b86">최근 업로드</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+<span style="font-size:13.5px;font-weight:700;color:#353535">원생명단_0714.xlsx</span>
+<span style="font-size:12px;color:#1e8a53;font-weight:600">반영 완료</span>
+</div>
+<div style="font-size:12px;color:#8f8b86;margin-top:2px">7/14 22:00 · 최수진</div>
+</div>
+</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:16px;display:flex;flex-direction:column;overflow:hidden">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #f1efec">
+<div style="font-size:15px;font-weight:800;color:#353535">드라이런 미리보기 <span style="font-size:12.5px;font-weight:500;color:#8f8b86;margin-left:6px">원생명단_0715.xlsx</span></div>
+<span style="font-size:12.5px;color:#8f8b86">승인 전까지 실제 데이터에 반영되지 않습니다</span>
+</div>
+<div style="display:flex;gap:8px;padding:14px 20px">
+<span style="padding:6px 14px;border-radius:999px;background:#e9f6ef;color:#1e8a53;font-size:12.5px;font-weight:700">신규 12</span>
+<span style="padding:6px 14px;border-radius:999px;background:#fdf3e2;color:#c9871d;font-size:12.5px;font-weight:700">변경 5</span>
+<span style="padding:6px 14px;border-radius:999px;background:#fdeaeb;color:#f0333e;font-size:12.5px;font-weight:700">충돌 2</span>
+<span style="padding:6px 14px;border-radius:999px;background:#f1efec;color:#8f8b86;font-size:12.5px;font-weight:600">동일 129</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:10px 20px;background:#fbfaf9;border-top:1px solid #f1efec;border-bottom:1px solid #f1efec;font-size:12.5px;font-weight:600;color:#8f8b86">
+<div style="width:56px">구분</div><div style="width:170px">대상</div><div style="flex:1">내용</div><div style="width:110px">처리</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid #f1efec">
+<div style="width:56px"><span style="font-size:12px;font-weight:700;color:#1e8a53">신규</span></div><div style="width:170px;font-size:14px;font-weight:700;color:#353535">김민준 <span style="font-weight:500;color:#8f8b86">중2</span></div><div style="flex:1;font-size:13.5px;color:#65615c">수학 심화반 신규 등록</div><div style="width:110px;font-size:12.5px;color:#8f8b86">자동 추가</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid #f1efec">
+<div style="width:56px"><span style="font-size:12px;font-weight:700;color:#c9871d">변경</span></div><div style="width:170px;font-size:14px;font-weight:700;color:#353535">한도윤 <span style="font-weight:500;color:#8f8b86">고2</span></div><div style="flex:1;font-size:13.5px;color:#65615c">상태 재원 → 휴원</div><div style="width:110px;font-size:12.5px;color:#8f8b86">자동 반영</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid #f1efec;background:#fdf5f3">
+<div style="width:56px"><span style="font-size:12px;font-weight:700;color:#f0333e">충돌</span></div><div style="width:170px;font-size:14px;font-weight:700;color:#353535">이서아 <span style="font-weight:500;color:#8f8b86">고1</span></div><div style="flex:1;font-size:13.5px;color:#65615c">보호자 번호 상이 — 엑셀 8845 vs 등록 8846</div><div style="width:110px"><span style="padding:5px 12px;border:1px solid #f0333e;color:#f0333e;border-radius:8px;font-size:12px;font-weight:700">선택 필요</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;background:#fdf5f3">
+<div style="width:56px"><span style="font-size:12px;font-weight:700;color:#f0333e">충돌</span></div><div style="width:170px;font-size:14px;font-weight:700;color:#353535">박지호 <span style="font-weight:500;color:#8f8b86">재수</span></div><div style="flex:1;font-size:13.5px;color:#65615c">중복 번호 — 형제 계정과 동일</div><div style="width:110px"><span style="padding:5px 12px;border:1px solid #f0333e;color:#f0333e;border-radius:8px;font-size:12px;font-weight:700">선택 필요</span></div>
+</div>
+<div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 20px;border-top:1px solid #f1efec;background:#fbfaf9">
+<span style="font-size:12.5px;color:#8f8b86">충돌 2건을 해결해야 승인할 수 있습니다</span>
+<div style="display:flex;gap:8px">
+<span style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border:1px solid #e2dfdb;color:#65615c;border-radius:10px;font-size:14px;font-weight:600">다시 업로드</span>
+<span style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;background:#c9c4be;color:#fff;border-radius:10px;font-size:14px;font-weight:700">승인하고 반영</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

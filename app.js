@@ -106,8 +106,16 @@
   ];
 
   function protoBase(){
-    var h = location.href, i = h.indexOf("/_proto/");
-    return i >= 0 ? h.slice(0, i + 8) : h.replace(/[^\/]*$/, "");
+    // 마운트 위치 무관: 현재 URL 끝에서 알려진 화면경로를 떼어 루트를 구한다.
+    // (예: https://host/teacher/home.html → https://host/  ·  .../_proto/teacher/home.html → .../_proto/)
+    var h = location.href.split(/[?#]/)[0];
+    for(var i=0;i<SCREENS.length;i++){
+      var suf = SCREENS[i].p;
+      if(h.slice(-suf.length) === suf) return h.slice(0, h.length - suf.length);
+    }
+    var j = h.indexOf("/_proto/");
+    if(j >= 0) return h.slice(0, j + 8);
+    return h.replace(/[^\/]*$/, "");   // index.html·debug-panel.html 등: 현재 폴더
   }
   var BASE = protoBase();
 

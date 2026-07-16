@@ -3,90 +3,92 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>공지 작성/발송 · n32</title>
+<title>공지/알림 · n32</title>
 <link rel="stylesheet" href="../styles.css">
 <script defer src="../app.js"></script>
-<style>
-  .editor{display:grid;grid-template-columns:1fr 300px;border:1px solid var(--line2);border-radius:14px;overflow:hidden;min-height:440px}
-  .presets{display:flex;align-items:center;gap:8px;padding:0 0 16px;flex-wrap:wrap}
-</style>
 </head>
 <body>
 <div class="proto-bar">
-  <a class="back" href="home.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
-  <span class="title">공지 작성/발송</span><span class="nid">n32</span>
+  <a class="back" href="../index.html" onclick="if(history.length>1){history.back();return false}">← 뒤로</a>
+  <span class="title">공지/알림</span><span class="nid">n32</span>
   <span class="spacer"></span>
   <a class="list" href="../index.html">≡ 목록</a>
 </div>
-
-<div class="stage">
-  <div class="desk-shell">
-    <div class="shell-topbar">
-      <div class="brand"><span class="logo">MADE <span class="r">LMS</span></span><span class="sep">|</span><span>데스크</span></div>
-      <div style="display:flex;align-items:center;gap:12px"><span class="small">임시저장됨 · 14:02</span><div class="avatar">최</div></div>
-    </div>
-    <div class="shell-main">
-      <nav class="shell-side">
-        <div class="sect">데스크 · 세이노 대치</div>
-        <a href="home.html"><span class="ic">🏠</span>홈</a>
-        <a href="students.html"><span class="ic">👤</span>학생 목록</a>
-        <a href="guardian-hold.html"><span class="ic">⚠️</span>보호자 연결 보류</a>
-        <a href="org.html"><span class="ic">🏫</span>조직 관리</a>
-        <a href="notice.html" class="on"><span class="ic">📢</span>공지 작성</a>
-        <a href="aca-upload.html"><span class="ic">📥</span>엑셀 업로드</a>
-      </nav>
-      <div class="shell-content">
-        <div class="ct-head"><h1>새 공지</h1></div>
-
-        <div class="presets">
-          <span class="small" style="font-weight:600;margin-right:4px">프리셋</span>
-          <span class="chip on" data-group="preset">일반 공지</span>
-          <span class="chip" data-group="preset">일정 안내</span>
-          <span class="chip" data-group="preset" style="border-color:var(--red);color:var(--red)">긴급 (SMS)</span>
-          <span class="chip" data-group="preset">설명회</span>
-          <span class="chip" style="border-style:dashed">+ 프리셋 관리</span>
-        </div>
-
-        <div class="editor">
-          <div style="padding:32px 36px;display:flex;flex-direction:column;gap:16px">
-            <div style="font-size:26px;font-weight:800;color:#c9c4be;letter-spacing:-.4px">제목을 입력하세요</div>
-            <div class="hr"></div>
-            <div style="font-size:15px;color:var(--faint);line-height:1.8">본문을 입력하세요. 프리셋을 선택하면 제목 형식과 본문 틀, 기본 대상·중요도가 미리 채워집니다.</div>
-          </div>
-
-          <div id="sendPanel" style="border-left:1px solid var(--line3);background:var(--panel);padding:24px;display:flex;flex-direction:column;gap:20px">
-            <b style="font-size:14px">발송 설정</b>
-            <div>
-              <p class="label">대상 · 수신 34명</p>
-              <div style="display:flex;flex-wrap:wrap;gap:6px">
-                <span class="chip" style="padding:6px 12px;font-size:12.5px;color:var(--ink)">수학 심화반 ✕</span>
-                <span class="chip" style="padding:6px 12px;font-size:12.5px;color:var(--ink)">중2 전체 ✕</span>
-                <span class="chip" style="padding:6px 12px;font-size:12.5px;border-style:dashed">+ 추가</span>
-              </div>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div><div style="font-size:13.5px;font-weight:700">중요 알림</div><div class="small" style="margin-top:2px">ON 시 SMS 동시 발송</div></div>
-              <button class="toggle off" data-toggle="sendLabel" data-label-on="발송 · 푸시 30 + SMS 4" data-label-off="발송 · 푸시 34" aria-checked="false"><span class="knob"></span></button>
-            </div>
-            <div style="border-top:1px solid var(--line2);padding-top:16px;display:flex;flex-direction:column;gap:10px;margin-top:auto">
-              <button class="btn outline sm" onclick="send()"><span id="sendLabel">발송 · 푸시 34</span></button>
-              <div class="small center">발송 후 이 패널이 채널별 도달 요약으로 바뀝니다</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div style="display:flex;min-height:100vh;background:#f7f7f7">
+<div style="width:220px;flex:none;background:#fff;border-right:1px solid #ececea;padding:22px 14px 18px;display:flex;flex-direction:column;gap:3px;box-sizing:border-box">
+<div style="font-size:19px;font-weight:800;letter-spacing:-.4px;color:#353535;padding:0 12px 18px">MADE <span style="color:#f0333e">LMS</span></div>
+<a href="home.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">홈</a>
+<a href="students.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">학생 관리</a>
+<a href="notice.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:700;background:#353535;color:#fff">공지/알림</a>
+<a href="aca-upload.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">데이터 연동</a>
+<a href="org.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:#65615c">조직 관리</a>
+<div style="flex:1"></div>
+<a href="../director/dashboard.html" style="display:block;padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:500;color:#8f8b86">원장 대시보드 ↗</a>
+<div style="display:flex;align-items:center;gap:10px;padding:12px 12px 0;border-top:1px solid #f1efec;margin-top:8px">
+<div style="width:34px;height:34px;border-radius:50%;background:#ebe9e5;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#353535">최</div>
+<div><div style="font-size:13.5px;font-weight:700;color:#353535">최수진</div><div style="font-size:12px;color:#8f8b86">데스크 · 세이노 대치</div></div>
 </div>
-
-<script>
-function send(){
-  document.getElementById('sendPanel').innerHTML =
-    '<b style="font-size:14px">발송 완료</b>'+
-    '<div class="card" style="margin-top:14px"><div style="font-size:13px;color:var(--mute)">총 도달</div><div style="font-size:26px;font-weight:800;color:var(--ok)">34 / 34</div></div>'+
-    '<div class="card">푸시 30 · SMS 4<div class="small" style="margin-top:4px">중요 알림으로 SMS 동시 발송됨</div></div>'+
-    '<a class="btn ghost sm" href="home.html" style="margin-top:8px">데스크 홈으로</a>';
-}
-</script>
+</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #ececea;padding:12px 28px">
+<div style="display:flex;align-items:center;gap:18px">
+<div style="font-size:18px;font-weight:800;color:#353535;letter-spacing:-.3px">공지/알림</div>
+<div style="display:flex;background:#ebe9e5;border-radius:10px;padding:3px;gap:3px">
+<div style="padding:7px 18px;text-align:center;background:#fff;border-radius:7px;font-size:13px;font-weight:700;color:#353535;box-shadow:0 1px 2px rgba(0,0,0,.07)">작성</div>
+<div style="padding:7px 18px;text-align:center;font-size:13px;font-weight:500;color:#8f8b86">발송 이력</div>
+</div>
+</div>
+<span style="font-size:13px;color:#8f8b86">임시저장됨 · 14:02</span>
+</div>
+<div class="shell-content" style="display:flex;align-items:center;gap:8px;padding:14px 28px;background:#fbfaf9;border-bottom:1px solid #ececea">
+<span style="font-size:13px;font-weight:600;color:#8f8b86;margin-right:6px">프리셋</span>
+<span style="padding:8px 18px;border-radius:999px;background:#353535;color:#fff;font-size:13px;font-weight:600">일반 공지</span>
+<span style="padding:8px 18px;border-radius:999px;background:#fff;border:1px solid #e2dfdb;color:#65615c;font-size:13px;font-weight:500">일정 안내</span>
+<span style="padding:8px 18px;border-radius:999px;background:#fff;border:1px solid #f0333e;color:#f0333e;font-size:13px;font-weight:600">긴급 (SMS)</span>
+<span style="padding:8px 18px;border-radius:999px;background:#fff;border:1px solid #e2dfdb;color:#65615c;font-size:13px;font-weight:500">설명회</span>
+<span style="padding:8px 18px;border-radius:999px;border:1px dashed #d5d1cb;color:#8f8b86;font-size:13px;font-weight:500">+ 프리셋 관리</span>
+<span style="font-size:12.5px;color:#8f8b86;margin-left:6px">선택 시 제목 형식·본문 틀·대상·중요도가 미리 채워집니다</span>
+</div>
+<div style="flex:1;display:flex;min-height:0">
+<div style="flex:1;min-width:0;padding:36px 44px;display:flex;flex-direction:column;gap:20px">
+<div style="font-size:30px;font-weight:800;color:#c9c4be;letter-spacing:-.4px">제목을 입력하세요</div>
+<div style="height:1px;background:#ececea"></div>
+<div style="font-size:15.5px;color:#b5b0aa;line-height:1.9">본문을 입력하세요.<br>문서 에디터처럼 작성에만 집중할 수 있게 폼 요소를 걷어냈습니다.</div>
+</div>
+<div style="width:300px;flex:none;background:#fff;border-left:1px solid #ececea;padding:24px;display:flex;flex-direction:column;gap:20px;box-sizing:border-box">
+<div style="font-size:14.5px;font-weight:800;color:#353535">발송 설정</div>
+<div>
+<div style="font-size:12.5px;font-weight:600;color:#8f8b86;margin-bottom:8px">대상 · 수신 34명</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+<span style="padding:7px 13px;border-radius:999px;background:#f7f7f7;border:1px solid #e2dfdb;font-size:12.5px;font-weight:600;color:#353535">수학 심화반 ✕</span>
+<span style="padding:7px 13px;border-radius:999px;background:#f7f7f7;border:1px solid #e2dfdb;font-size:12.5px;font-weight:600;color:#353535">중2 전체 ✕</span>
+<span style="padding:7px 13px;border-radius:999px;border:1px dashed #d5d1cb;font-size:12.5px;color:#8f8b86">+ 추가</span>
+</div>
+<div style="font-size:12px;color:#8f8b86;margin-top:8px">지점 · 반 · 개별 학생(보호자) 다중 선택</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-size:13.5px;font-weight:700;color:#353535">중요 알림</div><div style="font-size:12px;color:#8f8b86;margin-top:2px">ON 시 SMS 동시 발송</div></div>
+<sc-if value="{{ impOn }}" hint-placeholder-val="{{ false }}">
+<div style="width:46px;height:27px;border-radius:999px;background:#353535;position:relative"><div style="position:absolute;top:3px;right:3px;width:21px;height:21px;border-radius:50%;background:#fff"></div></div>
+</sc-if>
+<sc-if value="{{ impOff }}" hint-placeholder-val="{{ true }}">
+<div style="width:46px;height:27px;border-radius:999px;background:#d5d1cb;position:relative"><div style="position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff"></div></div>
+</sc-if>
+</div>
+<div style="background:#fbfaf9;border:1px solid #f1efec;border-radius:12px;padding:14px">
+<div style="font-size:12.5px;font-weight:700;color:#8f8b86;margin-bottom:8px">미리보기 — 학부모 알림함</div>
+<div style="background:#fff;border:1px solid #ececea;border-radius:10px;padding:12px">
+<div style="display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;background:#f0333e;border-radius:50%"></span><span style="font-size:13px;font-weight:700;color:#353535">제목을 입력하세요</span></div>
+<div style="font-size:12px;color:#8f8b86;margin-top:4px">공지 · 방금 · {{ channelNote }}</div>
+</div>
+</div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;justify-content:center;min-height:48px;border:1.5px solid #f0333e;color:#f0333e;border-radius:11px;font-size:15px;font-weight:700;background:#fff">{{ sendLabel }}</div>
+<div style="font-size:12px;color:#8f8b86;text-align:center;line-height:1.5">발송 후 이 패널이 채널별 도달 요약으로 바뀝니다</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
